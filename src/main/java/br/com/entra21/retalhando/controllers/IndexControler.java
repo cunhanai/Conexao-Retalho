@@ -1,5 +1,11 @@
 package br.com.entra21.retalhando.controllers;
 
-public class IndexControler {
+import org.springframework.web.bind.annotation.RequestMapping;
 
+public class IndexControler {
+	
+	@RequestMapping("/")
+	public String index() {
+		return "index.html";
+	}
 }

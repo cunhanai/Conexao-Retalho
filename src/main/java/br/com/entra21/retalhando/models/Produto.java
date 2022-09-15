@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Retalho implements Serializable {
+public class Produto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -18,15 +18,16 @@ public class Retalho implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	@NotBlank
-	private double qtde;
+	private String nome;
 	@NotBlank
-	private String cor;
+	private double preco;
+	private String tamanho;
 	@NotBlank
-	private String material;
+	private String descricaoo;
 	@NotBlank
 	private boolean disponivel = true;
 	@ManyToOne
-	private Empresa empresa;
+	private Ong ong;
 
 	public long getId() {
 		return id;
@@ -36,32 +37,36 @@ public class Retalho implements Serializable {
 		this.id = id;
 	}
 
-	public double getQtde() {
-		return qtde;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setQtde(double qtde) {
-		this.qtde = qtde;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getCor() {
-		return cor;
+	public double getPreco() {
+		return preco;
 	}
 
-	public void setCor(String cor) {
-		this.cor = cor;
+	public void setPreco(double preco) {
+		this.preco = preco;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public String getTamanho() {
+		return tamanho;
 	}
 
-	public Empresa getEmpresa() {
-		return empresa;
+	public void setTamanho(String tamanho) {
+		this.tamanho = tamanho;
 	}
 
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
+	public String getDescricaoo() {
+		return descricaoo;
+	}
+
+	public void setDescricaoo(String descricaoo) {
+		this.descricaoo = descricaoo;
 	}
 
 	public boolean isDisponivel() {
@@ -72,12 +77,16 @@ public class Retalho implements Serializable {
 		this.disponivel = disponivel;
 	}
 
-	public synchronized String getMaterial() {
-		return material;
+	public Ong getOng() {
+		return ong;
 	}
 
-	public synchronized void setMaterial(String material) {
-		this.material = material;
+	public void setOng(Ong ong) {
+		this.ong = ong;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }
