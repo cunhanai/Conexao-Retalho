@@ -16,7 +16,7 @@ public class Responsavel implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long idResponsavel;
 	@NotBlank
 	private String nome;
 	@NotBlank
@@ -26,11 +26,11 @@ public class Responsavel implements Serializable {
 	private Instituicao instituicao;
 
 	public long getId() {
-		return id;
+		return idResponsavel;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setId(long idResponsavel) {
+		this.idResponsavel = idResponsavel;
 	}
 
 	public String getNome() {
