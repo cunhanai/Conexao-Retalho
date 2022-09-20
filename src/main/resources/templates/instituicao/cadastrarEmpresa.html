@@ -10,7 +10,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!--Import materialize.css-->
 	<link type="text/css" rel="stylesheet"
-		href="materialize/css/materialize.min.css" media="screen,projection" />
+		href="/materialize/css/materialize.min.css" media="screen,projection" />
 	
 	<!--Let browser know website is optimized for mobile-->
 	<meta charset="UTF-8"
@@ -26,25 +26,33 @@
 
 	<form class="container formCadastro" method="post">
 	
-		<h5>Cadastrar Empresa</h5>
-		
+			<h5>Cadastrar Empresa</h5>
+			
 		<h6>Dados da empresa</h6>
-		Nome: <input type="text" value="" name="nomeInstituicao"/>
-		CNPJ: <input type="text" value="" name="cnpj"/>
+		<div class="row">
+			Nome: <input type="text" value="" name="nomeInstituicao"/>
+			CNPJ: <input type="text" value="" name="cnpj"/>
+		</div>
 		
 		<h6>Endereço</h6>
-		CEP: <input type="text" value="" name="cep"/>
-		Rua: <input type="text" value="" name="rua"/>
-		Numero: <input type="text" value="" name="numero"/>
-		Complemento: <input type="text" value="" name="complemento"/>
-		Bairro: <input type="text" value="" name="bairro"/>
-		Cidade: <input type="text" value="" name="cidade"/>
-		Estado: <input type="text" value="" name="estado"/>
+		<div>	
+			<div class="row" class="input-field col s3">		
+				CEP: <input type="text" value="" name="cep"/>
+				Rua: <input type="text" value="" name="rua"/>
+			</div>
+			Numero: <input type="text" value="" name="numero"/>
+			Complemento: <input type="text" value="" name="complemento"/>
+			Bairro: <input type="text" value="" name="bairro"/>
+			Cidade: <input type="text" value="" name="cidade"/>
+			Estado: <input type="text" value="" name="estado"/>
+		</div>
 		
 		<h6>Responsavel 1</h6>
-		Nome: <input type="text" value="" name="nome"/>
-		email: <input type="text" value="" name="email"/>
-		telefone: <input type="text" value="" name="telefone"/>
+		<div>
+			Nome: <input type="text" value="" name="nome"/>
+			email: <input type="text" value="" name="email"/>
+			telefone: <input type="text" value="" name="telefone"/>
+		</div>
 
 		<button class="waves-effect waves-light btn" type="submit">Salvar</button>
 
