@@ -24,34 +24,62 @@
 </head>
 <body>
 
+	<!-- formulario de cadastro de empresas -->
 	<form class="container formCadastro" method="post">
 	
-			<h5>Cadastrar Empresa</h5>
+		<h5>Cadastrar Empresa</h5>
 			
-		<h6>Dados da empresa</h6>
+		<!-- dados da empresa -->
 		<div class="row">
+		<h6>Dados da empresa</h6>
 			Nome: <input type="text" value="" name="nomeInstituicao"/>
 			CNPJ: <input type="text" value="" name="cnpj"/>
 		</div>
 		
-		<h6>Endereço</h6>
+		<!-- endereco endereco -->
 		<div>	
-			<div class="row" class="input-field col s3">		
-				CEP: <input type="text" value="" name="cep"/>
-				Rua: <input type="text" value="" name="rua"/>
+		<h6>Endereço</h6>
+		
+			<div class="row">
+				<div class="input-field col s3">	
+					CEP: <input type="text" value="" name="cep"/>
+				</div>	
+				<div  class="input-field col s9">
+					Rua: <input type="text" value="" name="rua"/>
+				</div>
 			</div>
-			Numero: <input type="text" value="" name="numero"/>
-			Complemento: <input type="text" value="" name="complemento"/>
-			Bairro: <input type="text" value="" name="bairro"/>
-			Cidade: <input type="text" value="" name="cidade"/>
-			Estado: <input type="text" value="" name="estado"/>
+		
+			<div class="row">
+				<div class="input-field col s1">
+					Numero: <input type="text" value="" name="numero"/>
+				</div>
+				<div class="input-field col s2">
+					Complemento: <input type="text" value="" name="complemento"/>
+				</div>
+				<div class="input-field col s3">
+					Bairro: <input type="text" value="" name="bairro"/>
+				</div>
+				<div class="input-field col s3">
+					Cidade: <input type="text" value="" name="cidade"/>
+				</div>
+				<div class="input-field col s3">
+					Estado: <input type="text" value="" name="estado"/>
+				</div>
+			</div>
 		</div>
 		
-		<h6>Responsavel 1</h6>
+		<!-- responsaveis -->
 		<div>
+		<h6>Responsavel 1</h6>
 			Nome: <input type="text" value="" name="nome"/>
-			email: <input type="text" value="" name="email"/>
-			telefone: <input type="text" value="" name="telefone"/>
+			<div class="row">
+				<div class="input-field col s8">
+					email: <input type="text" value="" name="email"/>
+				</div>
+				<div class="input-field col s4">
+					telefone: <input type="text" value="" name="telefone"/>
+				</div>
+			</div>
 		</div>
 
 		<button class="waves-effect waves-light btn" type="submit">Salvar</button>
