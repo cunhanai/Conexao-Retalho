@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import br.com.entra21.retalhando.models.Empresa;
 import br.com.entra21.retalhando.models.Instituicao;
 import br.com.entra21.retalhando.repository.EmpresaRepository;
+import br.com.entra21.retalhando.repository.EnderecoRepository;
 import br.com.entra21.retalhando.repository.InstituicaoRepository;
 
 @Controller
@@ -19,9 +20,10 @@ public class InstituicaoController {
 	private InstituicaoRepository ir;
 
 	@Autowired
-	private EmpresaRepository er;
+	private EmpresaRepository emr;
 	
-
+	@Autowired
+	private EnderecoRepository edr;
 
 	
 	// CADASTRO DE EMPRESA
