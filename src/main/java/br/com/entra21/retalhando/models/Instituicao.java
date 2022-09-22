@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Instituicao {
+public abstract class Instituicao {
 
 	@Id
 	private String cnpj;
