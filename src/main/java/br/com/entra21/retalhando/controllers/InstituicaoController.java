@@ -13,4 +13,8 @@ public class InstituicaoController {
 		return "instituicao/cadastrarEmpresa";
 	}
 	
+	@RequestMapping("/cadastro/Ong")
+	public String cadastrarOng() {
+		return "instituicao/cadastrarOng";
+	}
 }

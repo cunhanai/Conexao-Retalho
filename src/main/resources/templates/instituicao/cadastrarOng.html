@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+	xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+
+<head>
+
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet"
+		href="/materialize/css/materialize.min.css" media="screen,projection" />
+	
+	<!--Let browser know website is optimized for mobile-->
+	<meta charset="UTF-8"
+		 name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<!-- importacao do css -->
+	<!--  <link rel="stylesheet" href="style/styleCss.css"> -->
+
+<title>Retalhando - Cadastro de Empresas</title>
+
+</head>
+<body>
+
+	<form class="container formCadastro" method="post">
+	
+		<div style="text-align:center">
+		
+		<h5>Formulário ONG</h5>
+		</div>
+		<h6>Dados da ONG</h6>
+		Nome: <input type="text" value="" name="nomeInstituicao"/>
+		CNPJ: <input type="text" value="" name="cnpj"/>
+		
+		<h6>Endereço</h6>
+		CEP: <input type="text" value="" name="cep"/>
+		Rua: <input type="text" value="" name="rua"/>
+		Numero: <input type="text" value="" name="numero"/>
+		Complemento: <input type="text" value="" name="complemento"/>
+		Bairro: <input type="text" value="" name="bairro"/>
+		Cidade: <input type="text" value="" name="cidade"/>
+		Estado: <input type="text" value="" name="estado"/>
+		<div style="text-align:center">
+		<h6>Responsavel 1</h6>
+		</div>
+		Nome: <input type="text" value="" name="nome"/>
+		email: <input type="text" value="" name="email"/>
+		telefone: <input type="text" value="" name="telefone"/>
+
+		<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+
+	
+	</form>
+
+
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>
