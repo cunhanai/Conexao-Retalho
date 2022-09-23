@@ -46,7 +46,7 @@ public class InstituicaoController {
 	// dados basicos
 	@RequestMapping(value = "/cadastrar/empresa/dados-basicos", method = RequestMethod.GET)
 	public String cadastrarEmpresaDados() {
-		return "cadastro/cadastrarEmpresaDados";
+		return "instituicao/cadastrarEmpresaDados";
 	}
 
 	@RequestMapping(value = "/cadastrar/empresa/dados-basicos", method = RequestMethod.POST)
@@ -61,7 +61,7 @@ public class InstituicaoController {
 	@RequestMapping(value = "/cadastrar/empresa/endereco", method = RequestMethod.GET)
 	public String cadastrarEmpresaEndereco() {
 		
-		return "cadastro/cadastrarEmpresaEndereco";
+		return "instituicao/cadastrarEmpresaEndereco";
 	}
 	
 	@RequestMapping(value = "/cadastrar/empresa/endereco", method = RequestMethod.POST)
