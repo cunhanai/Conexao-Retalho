@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+	xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+
+<head>
+
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet"
+		href="/materialize/css/materialize.min.css" media="screen,projection" />
+	
+	<!--Let browser know website is optimized for mobile-->
+	<meta charset="UTF-8"
+		 name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<!-- importacao do css -->
+	<!--  <link rel="stylesheet" href="style/styleCss.css"> -->
+
+<title>Retalhando - Cadastro de Retalho</title>
+
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper #00695c teal darken-3">
+      <a  href="#" class="brand-logo">Retalhando.Entra21</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="waves-effect waves-light btn" href="sass.html">Página Inicial</a></li>
+        <li><a class="waves-effect waves-light btn" href="badges.html">Sobre as Ong</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+	<form class="container formCadastro" method="post">
+	
+		<div style="text-align:center">
+		
+		<h5>Cadastro de Retalhos a ser doado</h5>
+		</div>
+		<h6>Instituição Doadora</h6>
+		Nome: <input type="text" placeholder="Empresa ou instituição que está doando" value="" name="nomeInstituicao"/>
+		Tipo de Retalho: <input type="text" placeholder="tipo retalho a ser doado" value="" name="TipoDeRetalho"/>
+		Cor: <input type="text" placeholder="cor" value="" name="cor"/>
+		Quantidade de Retalho Doado: <input type="text" placeholder="Kilos ou peças" value="" name="QuantidadeDoação"/>
+		
+		
+	
+		<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+
+	
+	</form>
+
+
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+</body>
+</html>

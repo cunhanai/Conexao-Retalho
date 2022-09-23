@@ -43,6 +43,7 @@ public class InstituicaoController {
 
 	// CADASTRO DE EMPRESA
 
+	// dados basicos
 	@RequestMapping(value = "/cadastrar/empresa/dados-basicos", method = RequestMethod.GET)
 	public String cadastrarEmpresaDados() {
 		return "cadastro/cadastrarEmpresaDados";
@@ -56,10 +57,38 @@ public class InstituicaoController {
 		return "redirect:/cadastrar/empresa/endereco";
 	}
 
+	// endereco
+	@RequestMapping(value = "/cadastrar/empresa/endereco", method = RequestMethod.GET)
+	public String cadastrarEmpresaEndereco() {
+		
+		return "cadastro/cadastrarEmpresaEndereco";
+	}
+	
 	@RequestMapping(value = "/cadastrar/empresa/endereco", method = RequestMethod.POST)
-	public String cadastrarEmpresaEndereco(Endereco endereco) {
+	public String cadastrarEmpresaEnderecoPost(Endereco endereco) {
 		endr.save(endereco);
 		
 		return "redirect:/cadastrar/empresa/responsavel";
+	}
+	
+	// OUTROS
+	
+	@RequestMapping("/cadastro/Ong")
+	public String cadastrarOng() {
+		return "instituicao/cadastrarOng";
+	}
+	@RequestMapping("/cadastro/Retalho")
+	public String cadastrarRetalho() {
+		return "instituicao/cadastrarRetalho";
+	}
+	@RequestMapping("/perfil/Empresa")
+	public String perfilEmpresa() {
+		return "instituicao/perfilEmpresa";
+	
+	}
+	@RequestMapping("/descricao/Retalho")
+	public String descricaoRetalho() {
+		return "instituicao/descricaoRetalho";
+	
 	}
 }

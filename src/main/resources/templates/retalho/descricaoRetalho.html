@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+	
+
+<html lang="pt-br"
+ 	xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	
+	
+<head>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"
+		media="screen,projection" />
+	
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<meta charset="UTF-8">
+	
+	<!-- importacao do css -->
+	<link rel="stylesheet" href="style/styleCss.css">
+<body>
+
+	<!-- header - navbar -->
+	<header>
+		<nav>
+		    <div class="nav-wrapper #00695c teal darken-3">
+		      <a href="#" class="brand-logo">Sobre os Retalhos</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="/cadastrarEvento" class="waves-effect waves-light btn">
+					<i class="material-icons left">add_circle_outline</i>Cadastrar Ong</a></li>
+				<li><a href="/logout" class="waves-effect waves-light btn">Logout</a></li>
+		      </ul>
+		    </div>
+ 		</nav>
+	</header>
+
+	<!-- lista de eventos -->
+	<table class="container">
+		<thead>
+			<th>Tipo dos Retalhos</th>
+			
+		</thead>
+		<tbody>
+				<tr th:each ="evento: ${leventos}">
+					<td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
+						<span th:text= "${evento.nome}"></span></a></td>
+					<td><span th:text="${evento.local}"></span></td>
+					<td><span th:text="${evento.data}"></span></td>
+					<td><span th:text="${evento.horario}"></span></td>
+					<td><a th:href="${(#mvc.url('EC#editarEvento').arg(0, evento.codigo)).build()}">
+						<i class="material-icons left btnIcon">edit</i></a></td>
+					<td><a th:href="${(#mvc.url('EC#deletarEvento').arg(0, evento.codigo)).build()}">
+						<i class="material-icons left btnIcon">delete</i></a></td>
+				</tr>
+		</tbody>
+	</table>
+</body>

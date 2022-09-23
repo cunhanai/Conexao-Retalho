@@ -2,8 +2,6 @@ package br.com.entra21.retalhando.models;
 
 import java.util.List;
 
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -14,7 +12,6 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-//@DiscriminatorColumn(name="tipoInstituicao", discriminatorType = DiscriminatorType.INTEGER)
 public class Instituicao {
 
 	@Id
