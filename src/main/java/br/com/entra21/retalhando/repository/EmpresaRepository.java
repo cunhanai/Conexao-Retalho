@@ -6,4 +6,5 @@ import br.com.entra21.retalhando.models.Empresa;
 
 public interface EmpresaRepository extends JpaRepository<Empresa, String> {
 
+	Empresa findByCnpj(long cnpj);
 }

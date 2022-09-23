@@ -26,7 +26,7 @@
 
 	<!-- formulario de cadastro de empresas -->
 	
-	<form class="container formCadastro" method="post">
+	<form class="container formCadastro" method="post" th:object="${empresa}" th:action="/cadastrar/empresa">
 		<h5>Cadastrar Empresa</h5>
 	
 			
@@ -34,7 +34,7 @@
 		<h6>1 - Dados básicos da empresa</h6>
 			Nome: <input type="text" value="" name="nomeInstituicao"/>
 			CNPJ: <input type="text" value="" name="cnpj"/>
-		<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+		<button th:href="${(#mvc.url('EC#cadastrarEmpresaEndereco').arg(0, empresa.cnpj)).build()}" class="waves-effect waves-light btn" type="submit">Salvar</button>
 
 	
 	</form>
