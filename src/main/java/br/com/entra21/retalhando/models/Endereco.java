@@ -99,4 +99,14 @@ public class Endereco implements Serializable {
 		return serialVersionUID;
 	}
 
+	public synchronized Instituicao getInstituicao() {
+		return instituicao;
+	}
+
+	public synchronized void setInstituicao(Instituicao instituicao) {
+		this.instituicao = instituicao;
+	}
+	
+	
+
 }

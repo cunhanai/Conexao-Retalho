@@ -1,7 +1,5 @@
 package br.com.entra21.retalhando.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.entra21.retalhando.models.Empresa;
 import br.com.entra21.retalhando.models.Endereco;
+import br.com.entra21.retalhando.models.Ong;
 import br.com.entra21.retalhando.models.Responsavel;
 import br.com.entra21.retalhando.repository.EmpresaRepository;
 import br.com.entra21.retalhando.repository.EnderecoRepository;
@@ -30,9 +29,6 @@ public class InstituicaoController {
 	private EnderecoRepository endr;
 
 	@Autowired
-	private InstituicaoRepository ir;
-
-	@Autowired
 	private OngRepository or;
 
 	@Autowired
@@ -43,54 +39,75 @@ public class InstituicaoController {
 
 	@Autowired
 	private RetalhoRepository retr;
+	
+	// CADASTRO
+	
+	@RequestMapping(value = "/cadastrar", method = RequestMethod.GET)
+	public String cadastrar() {
+		return "instituicao/cadastro";
+	}
 
 	// CADASTRO DE EMPRESA
-
-	// dados basicos
 	@RequestMapping(value = "/cadastrar/empresa", method = RequestMethod.GET)
-	public String cadastrarEmpresaDados() {
+	public String cadastrarEmpresa() {
 		return "instituicao/cadastrarEmpresa";
 	}
 
 	@RequestMapping(value = "/cadastrar/empresa", method = RequestMethod.POST)
-	public String cadastrarEmpresaDadosPost(Empresa empresa, Endereco endereco, Responsavel responsavel) {
-		
+	public String cadastrarEmpresaPost(Empresa empresa, Endereco endereco, Responsavel responsavel) {
+
 		endr.save(endereco);
 		respr.save(responsavel);
 
 		empresa.setEndereco(endereco);
 		empresa.addResponsavel(responsavel);
-		
+
 		empr.save(empresa);
 
-		return "redirect:/";
+		return "redirect:/cadastrar/empresa";
 	}
-	
+
+	// CADASTRO DA ONG
+	@RequestMapping(value = "/cadastrar/ong", method = RequestMethod.GET)
+	public String cadastrarOng() {
+		return "instituicao/cadastrarOng";
+	}
+
+	@RequestMapping(value = "/cadastrar/ong", method = RequestMethod.POST)
+	public String cadastrarOngPost(Ong ong, Endereco endereco, Responsavel responsavel) {
+
+		endr.save(endereco);
+		respr.save(responsavel);
+
+		ong.setEndereco(endereco);
+		ong.addResponsavel(responsavel);
+		
+		or.save(ong);
+
+
+		return "redirect:/cadastrar/ong";
+	}
+
 	@RequestMapping(value = "/perfil-empresa", method = RequestMethod.GET)
 	public String perfilEmpresa() {
 		return "instituicao/perfilEmpresa";
 	}
-	
+
 	// OUTROS
-	
-	@RequestMapping("/cadastro/ong")
-	public String cadastrarOng() {
-		return "instituicao/cadastrarOng";
-	}
-	@RequestMapping("/cadastro/retalho")
+
+	@RequestMapping("/cadastrar-retalho")
 	public String cadastrarRetalho() {
 		return "instituicao/cadastrarRetalho";
 	}
-	
-	
-	@RequestMapping("/descricao/retalho")
+
+	@RequestMapping("/descricao-retalho")
 	public String descricaoRetalho() {
 		return "instituicao/descricaoRetalho";
-	
+
 	}
-	
+
 	@RequestMapping("/buscar-instituicoes")
-    public String buscarInstituicoes() {
-    return "instituicao/buscarInstituicoes";
-    }
+	public String buscarInstituicoes() {
+		return "instituicao/buscarInstituicoes";
+	}
 }

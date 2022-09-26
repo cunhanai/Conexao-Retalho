@@ -61,4 +61,21 @@ public class Responsavel implements Serializable {
 		return serialVersionUID;
 	}
 
+	public synchronized long getIdResponsavel() {
+		return idResponsavel;
+	}
+
+	public synchronized void setIdResponsavel(long idResponsavel) {
+		this.idResponsavel = idResponsavel;
+	}
+
+	public synchronized Instituicao getInstituicao() {
+		return instituicao;
+	}
+
+	public synchronized void setInstituicao(Instituicao instituicao) {
+		this.instituicao = instituicao;
+	}
+
+	
 }

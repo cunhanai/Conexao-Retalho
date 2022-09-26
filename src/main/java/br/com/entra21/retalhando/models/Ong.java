@@ -9,8 +9,6 @@ import javax.persistence.OneToMany;
 @Entity
 public class Ong extends Instituicao {
 
-	@Id
-	private String cnpj;
 	@OneToMany
 	private List<Produto> produtos;
 
