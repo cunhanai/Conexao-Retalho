@@ -21,13 +21,11 @@ public class Endereco implements Serializable {
 	private String rua;
 	@NotBlank
 	private String bairro;
-	@NotBlank
 	private int cep;
 	@NotBlank
 	private String cidade;
 	@NotBlank
 	private String estado;
-	@NotBlank
 	private int numero;
 	private String complemento;
 	@OneToOne
