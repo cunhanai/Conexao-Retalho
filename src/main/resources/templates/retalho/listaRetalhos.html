@@ -29,7 +29,7 @@
 		    <div class="nav-wrapper #00695c teal darken-3">
 		      <a href="#" class="brand-logo">Sobre os Retalhos</a>
 		      <ul id="nav-mobile" class="right hide-on-med-and-down">
-		        <li><a href="/cadastrarEvento" class="waves-effect waves-light btn">
+		        <li><a href="/cadastro/Ong" class="waves-effect waves-light btn">
 					<i class="material-icons left">add_circle_outline</i>Cadastrar Ong</a></li>
 				<li><a href="/logout" class="waves-effect waves-light btn">Logout</a></li>
 		      </ul>
@@ -45,7 +45,7 @@
 		</thead>
 		<tbody>
 				<tr th:each ="evento: ${leventos}">
-					<td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
+					<td><a th:href="${(#mvc.url('EC#cadastrarOng').arg(0, evento.codigo)).build()}">
 						<span th:text= "${evento.nome}"></span></a></td>
 					<td><span th:text="${evento.local}"></span></td>
 					<td><span th:text="${evento.data}"></span></td>

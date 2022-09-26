@@ -1,5 +1,7 @@
 package br.com.entra21.retalhando.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,33 +55,42 @@ public class InstituicaoController {
 	@RequestMapping(value = "/cadastrar/empresa", method = RequestMethod.POST)
 	public String cadastrarEmpresaDadosPost(Empresa empresa, Endereco endereco, Responsavel responsavel) {
 		
-		empr.save(empresa);
 		endr.save(endereco);
 		respr.save(responsavel);
 
-		return "redirect:/index.html";
+		empresa.setEndereco(endereco);
+		empresa.addResponsavel(responsavel);
+		
+		empr.save(empresa);
+
+		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "/cadastrar/perfilEmpresa", method = RequestMethod.GET)
+	@RequestMapping(value = "/perfil-empresa", method = RequestMethod.GET)
 	public String perfilEmpresa() {
 		return "instituicao/perfilEmpresa";
 	}
 	
 	// OUTROS
 	
-	@RequestMapping("/cadastro/Ong")
+	@RequestMapping("/cadastro/ong")
 	public String cadastrarOng() {
 		return "instituicao/cadastrarOng";
 	}
-	@RequestMapping("/cadastro/Retalho")
+	@RequestMapping("/cadastro/retalho")
 	public String cadastrarRetalho() {
 		return "instituicao/cadastrarRetalho";
 	}
 	
 	
-	@RequestMapping("/descricao/Retalho")
+	@RequestMapping("/descricao/retalho")
 	public String descricaoRetalho() {
 		return "instituicao/descricaoRetalho";
 	
 	}
+	
+	@RequestMapping("/buscar-instituicoes")
+    public String buscarInstituicoes() {
+    return "instituicao/buscarInstituicoes";
+    }
 }
