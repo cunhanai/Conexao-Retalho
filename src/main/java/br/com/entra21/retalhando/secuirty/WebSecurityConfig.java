@@ -22,11 +22,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests()
-		.antMatchers(HttpMethod.GET, "/").hasRole("ADMIN")
+		.antMatchers(HttpMethod.GET, "/").permitAll()
 		.antMatchers(HttpMethod.GET, "/cadastrar/ong").permitAll()
-		
+		.antMatchers(HttpMethod.GET, "/cadastrar/empresa").permitAll()
+		.antMatchers(HttpMethod.GET, "/cadastrar").permitAll()
 		.antMatchers(HttpMethod.POST, "/cadastrar").permitAll()
-		
+		.antMatchers(HttpMethod.POST, "/cadastrar/ong").permitAll()
 		.antMatchers(HttpMethod.POST, "/cadastrar/empresa").permitAll()
 		.anyRequest().authenticated()
 		.and().formLogin().loginPage("/login").permitAll()

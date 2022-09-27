@@ -23,10 +23,6 @@ public class Instituicao {
 	private String nomeInstituicao;
 	@OneToOne
 	private Endereco endereco;
-	@NotBlank
-	private String email;
-	@NotBlank
-	private String senha;
 	@Autowired
 	@OneToMany
 	private List<Responsavel> responsaveis;
@@ -70,22 +66,6 @@ public class Instituicao {
 
 	public void setDescricao(String descricao) {
 		this.sobre = descricao;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 
 	public String getSobre() {

@@ -1,4 +1,5 @@
 package br.com.entra21.retalhando.models;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -19,12 +20,10 @@ public class Usuario implements UserDetails {
 
 	@Id
 	private String login;
-	private String nomeCompleto;
+	private String emailCadastro;
 	private String senha;
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "usuarios_roles",
-		joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "login"), 
-		inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "nomeRole"))
+	@JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "login"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "nomeRole"))
 	private List<Role> roles;
 
 	// GETTERS AND SETTERS
@@ -36,12 +35,12 @@ public class Usuario implements UserDetails {
 		this.login = login;
 	}
 
-	public String getNomeCompleto() {
-		return nomeCompleto;
+	public String getEmailCadastro() {
+		return emailCadastro;
 	}
 
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
+	public void setEmailCadastro(String emailCadastro) {
+		this.emailCadastro = emailCadastro;
 	}
 
 	public List<Role> getRoles() {
@@ -65,8 +64,6 @@ public class Usuario implements UserDetails {
 	}
 
 	// OVERRIDE METHODS
-
-	
 
 	@Override
 	public String getPassword() {

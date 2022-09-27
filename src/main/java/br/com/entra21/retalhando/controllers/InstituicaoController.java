@@ -1,5 +1,7 @@
 package br.com.entra21.retalhando.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -10,12 +12,15 @@ import br.com.entra21.retalhando.models.Empresa;
 import br.com.entra21.retalhando.models.Endereco;
 import br.com.entra21.retalhando.models.Ong;
 import br.com.entra21.retalhando.models.Responsavel;
+import br.com.entra21.retalhando.models.Role;
+import br.com.entra21.retalhando.models.Usuario;
 import br.com.entra21.retalhando.repository.EmpresaRepository;
 import br.com.entra21.retalhando.repository.EnderecoRepository;
 import br.com.entra21.retalhando.repository.OngRepository;
 import br.com.entra21.retalhando.repository.ProdutoRepository;
 import br.com.entra21.retalhando.repository.ResponsavelRepository;
 import br.com.entra21.retalhando.repository.RetalhoRepository;
+import br.com.entra21.retalhando.repository.UsuarioRepository;
 
 
 @Controller
@@ -41,6 +46,12 @@ public class InstituicaoController {
 	@Autowired
 	private RetalhoRepository retr;
 	
+	@Autowired
+	private UsuarioRepository ur;
+	
+	@Autowired
+	private Role role;
+	
 	// CADASTRO
 	
 	@RequestMapping(value = "/cadastrar", method = RequestMethod.GET)
@@ -55,10 +66,8 @@ public class InstituicaoController {
 	}
 
 	@RequestMapping(value = "/cadastrar/empresa", method = RequestMethod.POST)
-	public String cadastrarEmpresaPost(Empresa empresa, Endereco endereco, Responsavel responsavel) {
+	public String cadastrarEmpresaPost(Empresa empresa, Endereco endereco, Responsavel responsavel, Usuario user) {
 
-		empresa.setSenha(new BCryptPasswordEncoder().encode(empresa.getSenha()));
-		
 		endr.save(endereco);
 		respr.save(responsavel);
 
@@ -66,6 +75,13 @@ public class InstituicaoController {
 		empresa.addResponsavel(responsavel);
 
 		empr.save(empresa);
+		
+		user.setSenha(new BCryptPasswordEncoder().encode(user.getSenha()));
+		user.setLogin(empresa.getCnpj());
+		
+		ur.save(user);
+		
+		
 
 		return "redirect:/cadastrar/empresa";
 	}
@@ -77,9 +93,7 @@ public class InstituicaoController {
 	}
 
 	@RequestMapping(value = "/cadastrar/ong", method = RequestMethod.POST)
-	public String cadastrarOngPost(Ong ong, Endereco endereco, Responsavel responsavel) {
-
-		ong.setSenha(new BCryptPasswordEncoder().encode(ong.getSenha()));
+	public String cadastrarOngPost(Ong ong, Endereco endereco, Responsavel responsavel, Usuario user) {
 		
 		endr.save(endereco);
 		respr.save(responsavel);
@@ -88,6 +102,10 @@ public class InstituicaoController {
 		ong.addResponsavel(responsavel);
 		
 		or.save(ong);
+		
+		user.setSenha(new BCryptPasswordEncoder().encode(user.getSenha()));
+		user.setLogin(ong.getCnpj());
+		ur.save(user);
 
 
 		return "redirect:/cadastrar/ong";
