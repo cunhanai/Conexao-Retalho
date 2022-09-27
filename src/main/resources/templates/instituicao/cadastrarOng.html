@@ -43,8 +43,10 @@
         <!-- dados da empresa -->
         <div class="row">
         <h6>Dados da Ong</h6>
-            Nome: <input type="text" placeholder="nome instituição" value="" name="nomeInstituicao"/>
-            CNPJ: <input type="text" placeholder="cadastro nacional de pessoa juridica0 (CNPJ)"  value="" name="cnpj"/>
+            Nome: <input type="text" placeholder="nome instituição" value="" name="nomeInstituicao" required="required"/>
+            CNPJ: <input type="text" placeholder="cadastro nacional de pessoa juridica (CNPJ)"  value="" name="cnpj" required="required"/>
+            E-mail: <input type="text" placeholder="email de cadastro da instituição"  value="" name="emailCadastro" required="required"/>
+            Senha: <input type="password" placeholder="senha"  value="" name="senha" required="required"/>
         </div>
         
         <!-- endereco endereco -->
@@ -53,28 +55,28 @@
         
             <div class="row">
                 <div class="input-field col s3">    
-                    CEP: <input type="text" placeholder="código do cep" value="" name="cep"/>
+                    CEP: <input type="text" placeholder="código do cep" value="" name="cep" required="required"/>
                 </div>    
                 <div  class="input-field col s9">
-                    Rua: <input type="text" placeholder="nome da rua ou loteamento"value="" name="rua"/>
+                    Rua: <input type="text" placeholder="nome da rua ou loteamento"value="" name="rua" required="required"/>
                 </div>
             </div>
         
             <div class="row">
                 <div class="input-field col s1">
-                    Numero: <input type="text" placeholder="numero" value="" name="numero"/>
+                    Numero: <input type="text" placeholder="numero" value="" name="numero" required="required"/>
                 </div>
                 <div class="input-field col s2">
-                    Complemento: <input type="text" placeholder="complemento" value="" name="complemento"/>
+                    Complemento: <input type="text" placeholder="complemento" value="" name="complemento" required="required"/>
                 </div>
                 <div class="input-field col s3">
-                    Bairro: <input type="text" placeholder="bairro" value="" name="bairro"/>
+                    Bairro: <input type="text" placeholder="bairro" value="" name="bairro" required="required"/>
                 </div>
                 <div class="input-field col s3">
-                    Cidade: <input type="text" placeholder="cidade" value="" name="cidade"/>
+                    Cidade: <input type="text" placeholder="cidade" value="" name="cidade" required="required"/>
                 </div>
                 <div class="input-field col s3">
-                    Estado: <input type="text" placeholder="estado" value="" name="estado"/>
+                    Estado: <input type="text" placeholder="estado" value="" name="estado" required="required"/>
                 </div>
             </div>
         </div>
@@ -82,13 +84,13 @@
         <!-- responsaveis -->
         <div>
         <h6>Responsavel 1</h6>
-            Nome: <input type="text" placeholder="nome responsavel" value="" name="nome"/>
+            Nome: <input type="text" placeholder="nome responsavel" value="" name="nome" required="required"/>
             <div class="row">
                 <div class="input-field col s8">
-                    email: <input type="text" placeholder="email" value="" name="email"/>
+                    email: <input type="text" placeholder="email" value="" name="email" required="required"/>
                 </div>
                 <div class="input-field col s4">
-                    telefone: <input type="text" placeholder="telefone"value="" name="telefone"/>
+                    telefone: <input type="text" placeholder="telefone"value="" name="telefone" required="required"/>
                 </div>
             </div>
         </div>

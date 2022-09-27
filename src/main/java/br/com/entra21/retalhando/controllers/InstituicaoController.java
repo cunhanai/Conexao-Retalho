@@ -1,6 +1,7 @@
 package br.com.entra21.retalhando.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,11 +12,11 @@ import br.com.entra21.retalhando.models.Ong;
 import br.com.entra21.retalhando.models.Responsavel;
 import br.com.entra21.retalhando.repository.EmpresaRepository;
 import br.com.entra21.retalhando.repository.EnderecoRepository;
-import br.com.entra21.retalhando.repository.InstituicaoRepository;
 import br.com.entra21.retalhando.repository.OngRepository;
 import br.com.entra21.retalhando.repository.ProdutoRepository;
 import br.com.entra21.retalhando.repository.ResponsavelRepository;
 import br.com.entra21.retalhando.repository.RetalhoRepository;
+
 
 @Controller
 public class InstituicaoController {
@@ -56,6 +57,8 @@ public class InstituicaoController {
 	@RequestMapping(value = "/cadastrar/empresa", method = RequestMethod.POST)
 	public String cadastrarEmpresaPost(Empresa empresa, Endereco endereco, Responsavel responsavel) {
 
+		empresa.setSenha(new BCryptPasswordEncoder().encode(empresa.getSenha()));
+		
 		endr.save(endereco);
 		respr.save(responsavel);
 
@@ -76,6 +79,8 @@ public class InstituicaoController {
 	@RequestMapping(value = "/cadastrar/ong", method = RequestMethod.POST)
 	public String cadastrarOngPost(Ong ong, Endereco endereco, Responsavel responsavel) {
 
+		ong.setSenha(new BCryptPasswordEncoder().encode(ong.getSenha()));
+		
 		endr.save(endereco);
 		respr.save(responsavel);
 

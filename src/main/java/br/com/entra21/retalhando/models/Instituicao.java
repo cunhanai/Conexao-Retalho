@@ -23,6 +23,10 @@ public class Instituicao {
 	private String nomeInstituicao;
 	@OneToOne
 	private Endereco endereco;
+	@NotBlank
+	private String email;
+	@NotBlank
+	private String senha;
 	@Autowired
 	@OneToMany
 	private List<Responsavel> responsaveis;
@@ -67,10 +71,38 @@ public class Instituicao {
 	public void setDescricao(String descricao) {
 		this.sobre = descricao;
 	}
-	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getSobre() {
+		return sobre;
+	}
+
+	public void setSobre(String sobre) {
+		this.sobre = sobre;
+	}
+
+	public void setNomeInstituicao(String nomeInstituicao) {
+		this.nomeInstituicao = nomeInstituicao;
+	}
+
 	public void addResponsavel(Responsavel responsavel) {
 		try {
-			this.responsaveis.add(responsavel);			
+			this.responsaveis.add(responsavel);
 		} catch (NullPointerException npe) {
 			responsaveis = new ArrayList<>();
 			this.responsaveis.add(responsavel);
