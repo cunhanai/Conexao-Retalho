@@ -1,27 +1,28 @@
 package br.com.entra21.retalhando.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.com.entra21.retalhando.models.Empresa;
 import br.com.entra21.retalhando.models.Endereco;
+import br.com.entra21.retalhando.models.Instituicao;
 import br.com.entra21.retalhando.models.Ong;
 import br.com.entra21.retalhando.models.Responsavel;
 import br.com.entra21.retalhando.models.Role;
 import br.com.entra21.retalhando.models.Usuario;
 import br.com.entra21.retalhando.repository.EmpresaRepository;
 import br.com.entra21.retalhando.repository.EnderecoRepository;
+import br.com.entra21.retalhando.repository.InstituicaoRepository;
 import br.com.entra21.retalhando.repository.OngRepository;
 import br.com.entra21.retalhando.repository.ProdutoRepository;
 import br.com.entra21.retalhando.repository.ResponsavelRepository;
 import br.com.entra21.retalhando.repository.RetalhoRepository;
 import br.com.entra21.retalhando.repository.UsuarioRepository;
-
 
 @Controller
 public class InstituicaoController {
@@ -33,6 +34,9 @@ public class InstituicaoController {
 
 	@Autowired
 	private EnderecoRepository endr;
+	
+	@Autowired
+	private InstituicaoRepository ir;
 
 	@Autowired
 	private OngRepository or;
@@ -45,15 +49,12 @@ public class InstituicaoController {
 
 	@Autowired
 	private RetalhoRepository retr;
-	
+
 	@Autowired
 	private UsuarioRepository ur;
-	
-	@Autowired
-	private Role role;
-	
+
 	// CADASTRO
-	
+
 	@RequestMapping(value = "/cadastrar", method = RequestMethod.GET)
 	public String cadastrar() {
 		return "instituicao/cadastro";
@@ -75,13 +76,11 @@ public class InstituicaoController {
 		empresa.addResponsavel(responsavel);
 
 		empr.save(empresa);
-		
+
 		user.setSenha(new BCryptPasswordEncoder().encode(user.getSenha()));
 		user.setLogin(empresa.getCnpj());
-		
+
 		ur.save(user);
-		
-		
 
 		return "redirect:/cadastrar/empresa";
 	}
@@ -94,22 +93,38 @@ public class InstituicaoController {
 
 	@RequestMapping(value = "/cadastrar/ong", method = RequestMethod.POST)
 	public String cadastrarOngPost(Ong ong, Endereco endereco, Responsavel responsavel, Usuario user) {
-		
+
 		endr.save(endereco);
 		respr.save(responsavel);
 
 		ong.setEndereco(endereco);
 		ong.addResponsavel(responsavel);
-		
+
 		or.save(ong);
-		
+
 		user.setSenha(new BCryptPasswordEncoder().encode(user.getSenha()));
 		user.setLogin(ong.getCnpj());
 		ur.save(user);
 
-
 		return "redirect:/cadastrar/ong";
 	}
+
+	@RequestMapping(value = "/buscar-instituicoes", method = RequestMethod.GET)
+	public String buscarInstituicoes() {
+		return "instituicao/buscarInstituicoes";
+	}
+	
+	// BUSCAR INSTITUIÇÕES E PEGA A LISTA DE INSTITUIÇÕES
+	@RequestMapping(value = "/buscar-instituicoes", method = RequestMethod.POST)
+	public ModelAndView buscarInstituicoesPost() {
+		ModelAndView mv = new ModelAndView("instituicao/listaEmpresas");
+		
+		// PROCURA A LISTA DE INSTITUICOES
+		Iterable<Instituicao> instituicoes = ir.findAll();
+		mv.addObject("instituicoes", instituicoes); // instituicoes = atributo que esta no html
+		
+		return mv;
+	} 
 
 	@RequestMapping(value = "/perfil-empresa", method = RequestMethod.GET)
 	public String perfilEmpresa() {
@@ -129,8 +144,5 @@ public class InstituicaoController {
 
 	}
 
-	@RequestMapping("/buscar-instituicoes")
-	public String buscarInstituicoes() {
-		return "instituicao/buscarInstituicoes";
-	}
+	
 }
