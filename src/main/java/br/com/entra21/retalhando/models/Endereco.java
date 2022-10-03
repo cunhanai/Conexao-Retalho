@@ -28,7 +28,7 @@ public class Endereco implements Serializable {
 	private String estado;
 	private int numero;
 	private String complemento;
-	@OneToOne
+	@OneToOne(mappedBy = "endereco")
 	private Instituicao instituicao;
 
 	public long getId() {

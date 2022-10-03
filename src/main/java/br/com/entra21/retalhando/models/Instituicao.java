@@ -11,8 +11,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Instituicao {
@@ -23,9 +21,10 @@ public class Instituicao {
 	private String nomeInstituicao;
 	@OneToOne
 	private Endereco endereco;
-	@Autowired
+	
 	@OneToMany
 	private List<Responsavel> responsaveis;
+	
 	private String sobre;
 
 	public String getCnpj() {

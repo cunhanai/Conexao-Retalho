@@ -1,9 +1,11 @@
 package br.com.entra21.retalhando.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,6 +24,7 @@ import br.com.entra21.retalhando.repository.OngRepository;
 import br.com.entra21.retalhando.repository.ProdutoRepository;
 import br.com.entra21.retalhando.repository.ResponsavelRepository;
 import br.com.entra21.retalhando.repository.RetalhoRepository;
+import br.com.entra21.retalhando.repository.RoleRepository;
 import br.com.entra21.retalhando.repository.UsuarioRepository;
 
 @Controller
@@ -52,6 +55,9 @@ public class InstituicaoController {
 
 	@Autowired
 	private UsuarioRepository ur;
+	
+	@Autowired
+	private RoleRepository rr;
 
 	// CADASTRO
 
@@ -69,18 +75,20 @@ public class InstituicaoController {
 	@RequestMapping(value = "/cadastrar/empresa", method = RequestMethod.POST)
 	public String cadastrarEmpresaPost(Empresa empresa, Endereco endereco, Responsavel responsavel, Usuario user) {
 
-		endr.save(endereco);
-		respr.save(responsavel);
-
-		empresa.setEndereco(endereco);
-		empresa.addResponsavel(responsavel);
-
-		empr.save(empresa);
-
+		Role role = rr.findByNomeRole("ROLE_USER_EMPR");
+		List<Role> roles = new ArrayList<Role>();
+		roles.add(role);
+		user.setRoles(roles);
 		user.setSenha(new BCryptPasswordEncoder().encode(user.getSenha()));
 		user.setLogin(empresa.getCnpj());
-
 		ur.save(user);
+		
+		endereco.setInstituicao(empresa);
+		responsavel.setInstituicao(empresa);
+		
+		empr.save(empresa);
+		endr.save(endereco);
+		respr.save(responsavel);
 
 		return "redirect:/cadastrar/empresa";
 	}
@@ -94,18 +102,21 @@ public class InstituicaoController {
 	@RequestMapping(value = "/cadastrar/ong", method = RequestMethod.POST)
 	public String cadastrarOngPost(Ong ong, Endereco endereco, Responsavel responsavel, Usuario user) {
 
-		endr.save(endereco);
-		respr.save(responsavel);
-
-		ong.setEndereco(endereco);
-		ong.addResponsavel(responsavel);
-
-		or.save(ong);
-
+		Role role = rr.findByNomeRole("ROLE_USER_ONG");
+		List<Role> roles = new ArrayList<Role>();
+		roles.add(role);
+		user.setRoles(roles);
 		user.setSenha(new BCryptPasswordEncoder().encode(user.getSenha()));
 		user.setLogin(ong.getCnpj());
 		ur.save(user);
-
+		
+		ong.setEndereco(endereco);
+		ong.addResponsavel(responsavel);
+		
+		endr.save(endereco);
+		respr.save(responsavel);
+		or.save(ong);
+		
 		return "redirect:/cadastrar/ong";
 	}
 

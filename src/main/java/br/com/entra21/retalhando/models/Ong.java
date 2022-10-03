@@ -3,7 +3,6 @@ package br.com.entra21.retalhando.models;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
