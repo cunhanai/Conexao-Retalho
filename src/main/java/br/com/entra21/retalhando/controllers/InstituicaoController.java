@@ -83,13 +83,14 @@ public class InstituicaoController {
 		user.setLogin(empresa.getCnpj());
 		ur.save(user);
 		
+		
 		endereco.setInstituicao(empresa);
 		responsavel.setInstituicao(empresa);
 		
 		empr.save(empresa);
 		endr.save(endereco);
 		respr.save(responsavel);
-
+		
 		return "redirect:/cadastrar/empresa";
 	}
 
@@ -110,12 +111,12 @@ public class InstituicaoController {
 		user.setLogin(ong.getCnpj());
 		ur.save(user);
 		
-		ong.setEndereco(endereco);
-		ong.addResponsavel(responsavel);
+		endereco.setInstituicao(ong);
+		responsavel.setInstituicao(ong);
 		
+		or.save(ong);
 		endr.save(endereco);
 		respr.save(responsavel);
-		or.save(ong);
 		
 		return "redirect:/cadastrar/ong";
 	}

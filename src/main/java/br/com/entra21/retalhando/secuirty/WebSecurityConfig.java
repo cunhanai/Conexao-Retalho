@@ -22,7 +22,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests()
-		.antMatchers(HttpMethod.GET, "/").permitAll()
 		.antMatchers(HttpMethod.GET, "/cadastrar/ong").permitAll()
 		.antMatchers(HttpMethod.GET, "/cadastrar/empresa").permitAll()
 		.antMatchers(HttpMethod.GET, "/cadastrar").permitAll()
@@ -47,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/materialize/**", "/style/**");
+		web.ignoring().antMatchers("/materialize/**", "/style/**", "/error");
 	}
 
 }

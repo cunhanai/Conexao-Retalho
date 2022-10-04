@@ -3,6 +3,7 @@ package br.com.entra21.retalhando.models;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class Endereco implements Serializable {
 	private String estado;
 	private int numero;
 	private String complemento;
-	@OneToOne(mappedBy = "endereco")
+	@OneToOne(fetch = FetchType.LAZY)
 	private Instituicao instituicao;
 
 	public long getId() {
