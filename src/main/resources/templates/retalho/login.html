@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+	xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	
+	
+<head>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		rel="stylesheet" />
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet"
+		href="materialize/css/materialize.min.css" media="screen,projection" />
+	
+	<!--Let browser know website is optimized for mobile-->
+	<meta charset=UTF-8
+		name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<!-- importacao do css -->
+	<link rel="stylesheet" href="style/styleCss.css">
+	
+	<title>Login</title>
+</head>
+
+
+<body>
+	
+	<!-- header - navbar -->
+	<header>
+        <nav class="menu">
+            <div class="nav-wrapper #00695c teal darken-3">
+              <a href="#" class="brand-logo">Login</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+              	<li><a href="/" class="waves-effect waves-light btn">Página Inicial</a></li>
+              </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- formulario de login -->
+    
+        <div class="box-parent-login">
+    	<div class="well bg-white box-login">
+    		<h1 class="ls-login-logo">Conexão Retalho</h1>
+    		<form role="form">
+    			<fieldset>
+     
+    				<div class="form-group ls-login-user">
+    					<label for="userLogin">Usuário</label>
+    					<input class="form-control ls-login-bg-user input-lg" id="userLogin" type="text" aria-label="Usuário" placeholder="Usuário">
+    				</div>
+     
+    				<div class="form-group ls-login-password">
+    					<label for="userPassword">Senha</label>
+    					<input class="form-control ls-login-bg-password input-lg" id="userPassword" type="password" aria-label="Senha" placeholder="Senha">
+    				</div>
+    				 <a href="/recuperacao-senha">Esqueci minha senha</a>
+    				
+    			<!--	<a href="#" class="ls-login-forgot">Esqueci minha senha</a>  -->
+     
+    				<input type="submit" value="Entrar" class="btn btn-primary btn-lg btn-block">
+    				<!--	<p class="txt-center ls-login-signup">Não possui um usuário na conexão retalho? -->
+    				 <a href="/cadastrar/empresa">Cadastre-se agora</a>
+     
+    					<!--<input type="submit" value="Cadastre-se agora" class="btn btn-primary btn-lg btn-block">	 -->
+    				</p>
+     
+    			</fieldset>
+    		</form>
+    	</div>
+    </div>
+    
+    
+    
+    
+    
+</html>

@@ -1,0 +1,79 @@
+
+/* todos */
+
+
+h5 {
+	text-align: center;
+	color: #4aa49b;
+}
+
+brand-logo {
+	text-align: center;
+	color: #4aa49b;
+}
+
+nav {
+	margin-bottom: 60px;
+	padding-left: 30px;
+	background-color: #00695c;
+}
+
+a {
+	color: #4aa49b;
+}
+
+.btnIcon {
+	color: #00695c;
+}
+
+.btnSave {
+	background-color: #00695c;
+}
+
+/* detalhesEvento.html */
+.detalhesEvento {
+	box-shadow: 0px 0px 5px gray;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 60px;
+	/*background: white;
+	border-radius: 10px;
+	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);*/
+}
+
+.formConvidado {
+	box-shadow: 0px 0px 5px gray;
+	padding: 20px;
+	margin-bottom: 60px;
+	margin-top: 60px;
+}
+
+.tabelaConvidado {
+	width: 50%;
+}
+
+/* formEvento */
+.formEvento {
+	box-shadow: 0px 0px 5px gray;
+	padding: 20px;
+	margin-bottom: 60px;
+}
+
+/* login.html */
+.login {
+	box-shadow: 0px 0px 5px gray;
+	padding: 20px;
+	padding-right: 20px;
+	margin-top: 200px;
+	margin-bottom: 60px;
+	border-radius: 10px;
+	width: 700px;
+	/*background: white;
+	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);*/
+}
+
+.btnAcessar {
+	
+}
+
