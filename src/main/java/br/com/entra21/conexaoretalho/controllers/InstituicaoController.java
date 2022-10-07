@@ -127,16 +127,15 @@ public class InstituicaoController {
 	}
 	
 	// BUSCAR INSTITUIÇÕES E PEGA A LISTA DE INSTITUIÇÕES
-	@RequestMapping(value = "/buscar-instituicoes", method = RequestMethod.POST)
-	public ModelAndView buscarInstituicoesPost() {
-		ModelAndView mv = new ModelAndView("instituicao/listaEmpresas");
-		
-		// PROCURA A LISTA DE INSTITUICOES
-		Iterable<Instituicao> instituicoes = ir.findAll();
-		mv.addObject("instituicoes", instituicoes); // instituicoes = atributo que esta no html
-		
-		return mv;
-	} 
+    @RequestMapping(value = "/listaEmpresas", method = RequestMethod.GET)
+    public String listaEmpresas() {
+        ModelAndView mv = new ModelAndView("instituicao/listaEmpresas");
+        // PROCURA A LISTA DE INSTITUICOES
+                Iterable<Instituicao> instituicoes = ir.findAll();
+                mv.addObject("instituicoes", instituicoes); // instituicoes = atributo que esta no html
+        
+        return "instituicao/listaEmpresas";
+    } 
 
 	@RequestMapping(value = "/perfil-empresa", method = RequestMethod.GET)
 	public String perfilEmpresa() {
