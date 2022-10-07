@@ -1,4 +1,4 @@
-package br.com.entra21.retalhando.controllers;
+package br.com.entra21.conexaoretalho.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,22 +10,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.entra21.retalhando.models.Empresa;
-import br.com.entra21.retalhando.models.Endereco;
-import br.com.entra21.retalhando.models.Instituicao;
-import br.com.entra21.retalhando.models.Ong;
-import br.com.entra21.retalhando.models.Responsavel;
-import br.com.entra21.retalhando.models.Role;
-import br.com.entra21.retalhando.models.Usuario;
-import br.com.entra21.retalhando.repository.EmpresaRepository;
-import br.com.entra21.retalhando.repository.EnderecoRepository;
-import br.com.entra21.retalhando.repository.InstituicaoRepository;
-import br.com.entra21.retalhando.repository.OngRepository;
-import br.com.entra21.retalhando.repository.ProdutoRepository;
-import br.com.entra21.retalhando.repository.ResponsavelRepository;
-import br.com.entra21.retalhando.repository.RetalhoRepository;
-import br.com.entra21.retalhando.repository.RoleRepository;
-import br.com.entra21.retalhando.repository.UsuarioRepository;
+import br.com.entra21.conexaoretalho.models.Empresa;
+import br.com.entra21.conexaoretalho.models.Endereco;
+import br.com.entra21.conexaoretalho.models.Instituicao;
+import br.com.entra21.conexaoretalho.models.Ong;
+import br.com.entra21.conexaoretalho.models.Responsavel;
+import br.com.entra21.conexaoretalho.models.Role;
+import br.com.entra21.conexaoretalho.models.Usuario;
+import br.com.entra21.conexaoretalho.repository.EmpresaRepository;
+import br.com.entra21.conexaoretalho.repository.EnderecoRepository;
+import br.com.entra21.conexaoretalho.repository.InstituicaoRepository;
+import br.com.entra21.conexaoretalho.repository.OngRepository;
+import br.com.entra21.conexaoretalho.repository.ProdutoRepository;
+import br.com.entra21.conexaoretalho.repository.ResponsavelRepository;
+import br.com.entra21.conexaoretalho.repository.RetalhoRepository;
+import br.com.entra21.conexaoretalho.repository.RoleRepository;
+import br.com.entra21.conexaoretalho.repository.UsuarioRepository;
 
 @Controller
 public class InstituicaoController {

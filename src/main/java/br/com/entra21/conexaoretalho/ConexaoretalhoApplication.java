@@ -1,13 +1,13 @@
-package br.com.entra21.retalhando;
+package br.com.entra21.conexaoretalho;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RetalhandoApplication {
+public class ConexaoretalhoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RetalhandoApplication.class, args);
+		SpringApplication.run(ConexaoretalhoApplication.class, args);
 	}
 
 }

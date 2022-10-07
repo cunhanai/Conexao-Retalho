@@ -1,4 +1,4 @@
-package br.com.entra21.retalhando.models;
+package br.com.entra21.conexaoretalho.models;
 
 import java.util.ArrayList;
 import java.util.List;

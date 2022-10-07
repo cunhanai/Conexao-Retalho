@@ -1,8 +1,8 @@
-package br.com.entra21.retalhando.repository;
+package br.com.entra21.conexaoretalho.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.entra21.retalhando.models.Produto;
+import br.com.entra21.conexaoretalho.models.Produto;
 
 public interface ProdutoRepository extends JpaRepository<Produto, String> {
 

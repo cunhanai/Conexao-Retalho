@@ -1,9 +1,9 @@
-package br.com.entra21.retalhando.repository;
+package br.com.entra21.conexaoretalho.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.entra21.retalhando.models.Endereco;
-import br.com.entra21.retalhando.models.Instituicao;
+import br.com.entra21.conexaoretalho.models.Endereco;
+import br.com.entra21.conexaoretalho.models.Instituicao;
 
 public interface EnderecoRepository extends JpaRepository<Endereco, String> {
 

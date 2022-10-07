@@ -1,4 +1,4 @@
-package br.com.entra21.retalhando.controllers;
+package br.com.entra21.conexaoretalho.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

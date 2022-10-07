@@ -1,11 +1,11 @@
-package br.com.entra21.retalhando.component;
+package br.com.entra21.conexaoretalho.component;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import br.com.entra21.retalhando.models.Role;
-import br.com.entra21.retalhando.repository.RoleRepository;
+import br.com.entra21.conexaoretalho.models.Role;
+import br.com.entra21.conexaoretalho.repository.RoleRepository;
 
 @Component
 public class CarregadoraDados implements CommandLineRunner {

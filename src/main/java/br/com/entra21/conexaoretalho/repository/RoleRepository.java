@@ -1,8 +1,8 @@
-package br.com.entra21.retalhando.repository;
+package br.com.entra21.conexaoretalho.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.entra21.retalhando.models.Role;
+import br.com.entra21.conexaoretalho.models.Role;
 
 public interface RoleRepository extends JpaRepository<Role, String> {
 

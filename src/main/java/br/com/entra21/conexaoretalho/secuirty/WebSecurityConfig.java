@@ -1,4 +1,4 @@
-package br.com.entra21.retalhando.secuirty;
+package br.com.entra21.conexaoretalho.secuirty;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
