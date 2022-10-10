@@ -9,6 +9,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -19,6 +20,11 @@ public class Instituicao {
 	private String cnpj;
 	@NotBlank
 	private String nomeInstituicao;
+	
+	@NotBlank
+	@Email
+	private String emailCadastro;
+	
 	@OneToOne
 	private Endereco endereco;
 	
