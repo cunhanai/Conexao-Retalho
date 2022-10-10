@@ -34,6 +34,8 @@
 		<h6>Dados da empresa</h6>
 			Nome: <input type="text" value="" name="nomeInstituicao" required="required"/>
 			CNPJ: <input type="text" value="" name="cnpj" required="required"/>
+			<span class="mensagem" th:if="${cnpjExiste}" th:text="${cnpjExiste}"></span>
+			
 			E-mail: <input type="text" placeholder="email de cadastro da instituição"  value="" name="emailCadastro" required="required"/>
             Senha: <input type="password" placeholder="senha"  value="" name="senha" required="required"/>
 		
