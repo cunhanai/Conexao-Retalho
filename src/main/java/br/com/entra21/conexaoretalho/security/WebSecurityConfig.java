@@ -1,4 +1,4 @@
-package br.com.entra21.conexaoretalho.secuirty;
+package br.com.entra21.conexaoretalho.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -60,10 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //		.withUser("hello").password("{noop}123").roles("ADMIN");
 	}
 	
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+	
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {

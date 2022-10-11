@@ -1,4 +1,4 @@
-package br.com.entra21.conexaoretalho.secuirty;
+package br.com.entra21.conexaoretalho.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -24,9 +24,21 @@
 </head>
 <body>
 
+<!-- navbar -->
+	<nav>
+    <div class="nav-wrapper #00695c teal darken-3">
+      <a href="#" class="brand-logo">Conexão Retalho</a>
+      <ul id="nav-mobile" class="right ">
+      <!-- <ul id="nav-mobile" class="right hide-on-med-and-down"> -->
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/cadastrar/ong">Cadastrar ONG</a></li>
+      </ul>
+    </div>
+  </nav>
+
 	<!-- formulario de cadastro de empresas -->
-	
-	<form action="#" th:action="@{/cadastrar/empresa}" th:object="${usuario}" class="container formCadastro" method="post">
+	<th:block th:include="mensagemValidacao"></th:block>
+	<form class="container formCadastro" method="post">
 		<h5>Cadastrar Empresa</h5>
 	
 			

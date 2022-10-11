@@ -13,25 +13,37 @@ import javax.validation.constraints.NotBlank;
 @Entity
 public class Endereco implements Serializable {
 
+	// ATTRIBUTES
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
 	@NotBlank
 	private String rua;
+	
 	@NotBlank
 	private String bairro;
+	
 	private int cep;
+	
 	@NotBlank
 	private String cidade;
+	
 	@NotBlank
 	private String estado;
+	
 	private int numero;
+	
 	private String complemento;
+	
 	@OneToOne(fetch = FetchType.LAZY)
 	private Instituicao instituicao;
 
+	// GETTERS AND SETTERS
+	
 	public long getId() {
 		return id;
 	}

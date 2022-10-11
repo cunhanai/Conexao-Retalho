@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,6 +27,8 @@ public class Usuario implements UserDetails {
 	private long id;
 
 	private String login;
+	@NotBlank
+	@Email
 	private String emailCadastro;
 	private String senha;
 

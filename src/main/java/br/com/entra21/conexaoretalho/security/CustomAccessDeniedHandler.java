@@ -1,4 +1,4 @@
-package br.com.entra21.conexaoretalho.secuirty;
+package br.com.entra21.conexaoretalho.security;
 
 import java.io.IOException;
 
