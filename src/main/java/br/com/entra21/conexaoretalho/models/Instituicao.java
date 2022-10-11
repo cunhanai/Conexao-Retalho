@@ -11,19 +11,22 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.br.CNPJ;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Instituicao {
 
+	// ATTRIBUTES
+	
 	@Id
+	@CNPJ
 	private String cnpj;
-	@NotBlank
-	private String nomeInstituicao;
 	
 	@NotBlank
-	@Email
-	private String emailCadastro;
+	private String nomeInstituicao;
 	
 	@OneToOne
 	private Endereco endereco;
@@ -33,6 +36,8 @@ public class Instituicao {
 	
 	private String sobre;
 
+	
+	// GETTERS AND SETTERS
 	public String getCnpj() {
 		return cnpj;
 	}
