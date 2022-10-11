@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-	
-
 <html lang="pt-br"
  	xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
@@ -22,20 +20,38 @@
 	<!-- importacao do css -->
 	<link rel="stylesheet" href="style/styleCss.css">
 <body>
-
+	
 	<!-- header - navbar -->
-	<header>
-		<nav>
-		    <div class="nav-wrapper #00695c teal darken-3">
-		      <a href="#" class="brand-logo">Empresas Apoiadoras</a>
-		      <ul id="nav-mobile" class="right hide-on-med-and-down">
-		        <li><a href="/cadastrarEvento" class="waves-effect waves-light btn">
-					<i class="material-icons left">add_circle_outline</i>Cadastrar Empresa</a></li>
-				<li><a href="/logout" class="waves-effect waves-light btn">Logout</a></li>
-		      </ul>
+		<header>
+			<nav>
+			    <div class="nav-wrapper #00695c teal darken-3">
+			      <a href="#" class="brand-logo">Empresas Apoiadoras</a>
+			      <ul id="nav-mobile" class="right hide-on-med-and-down">	 
+			      <li><a href="/" class="waves-effect waves-light btn">Página Inicial</a></li>     
+			        <li><a href="/cadastrar/empresa" class="waves-effect waves-light btn">
+						<i class="material-icons left">add_circle_outline</i>Cadastrar Empresa</a></li>
+					<li><a href="/logout" class="waves-effect waves-light btn">Logout</a></li>
+			      </ul>
+			    </div>
+	 		</nav>
+		</header>
+		<form class="container formCadastro" method="post">
+		    
+		        <h5 style="text-align:center">Instituições</h5>
+		        
+		        <!--  -->
+		        <div id="divBusca">
+		            <i    class="material-icons left">search</i>Pesquisar</a>        
+		              <input type="text" id="txtBusca" placeholder="Buscar..."/>
+		              <button id="btnBusca">Buscar</button>
+		              <!-- dados da empresa -->
+		        <div class="row">
+		        <!--  <h6>Dados da empresa</h6>
+		            Nome: <input type="text" value="" name="nomeInstituicao" placeholder="Nome..."/>
+		            CNPJ: <input type="text" value="" name="cnpj" placeholder="Cnpj..."/>-->
+		        </div>
 		    </div>
- 		</nav>
-	</header>
+		    </form>
 
 	<!-- lista de eventos -->
 	<table class="container">
@@ -44,16 +60,13 @@
 			
 		</thead>
 		<tbody>
-				<tr th:each ="evento: ${leventos}">
-					<td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
-						<span th:text= "${evento.nome}"></span></a></td>
-					<td><span th:text="${evento.local}"></span></td>
-					<td><span th:text="${evento.data}"></span></td>
-					<td><span th:text="${evento.horario}"></span></td>
-					<td><a th:href="${(#mvc.url('EC#editarEvento').arg(0, evento.codigo)).build()}">
+				<tr th:each ="instituicao: ${linstituicoes}">
+					<td><span th:text="${instituicao.nomeInstituicao}"></span></td>
+					
+					<!-- <td><a th:href="${(#mvc.url('EC#editarEvento').arg(0, evento.codigo)).build()}">
 						<i class="material-icons left btnIcon">edit</i></a></td>
 					<td><a th:href="${(#mvc.url('EC#deletarEvento').arg(0, evento.codigo)).build()}">
-						<i class="material-icons left btnIcon">delete</i></a></td>
+						<i class="material-icons left btnIcon">delete</i></a></td> -->
 						
 				</tr>
 		</tbody>

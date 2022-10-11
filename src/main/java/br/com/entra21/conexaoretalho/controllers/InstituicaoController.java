@@ -66,31 +66,16 @@ public class InstituicaoController {
 
 	// CADASTRO
 
-	@RequestMapping(value = "/cadastrar", method = RequestMethod.GET)
-	public String cadastrar() {
-		return "instituicao/cadastro";
-	}
-
 	// CADASTRO DE EMPRESA
 	@RequestMapping(value = "/cadastrar/empresa", method = RequestMethod.GET)
 	public String cadastrarEmpresa(Model model) {
+		model.addAttribute("usuario", new Usuario());
 		return "instituicao/cadastrarEmpresa";
 	}
 
 	@RequestMapping(value = "/cadastrar/empresa", method = RequestMethod.POST)
-	public String cadastrarEmpresaPost(@Valid Empresa empresa, Endereco endereco, Responsavel responsavel, Usuario user,
+	public String cadastrarEmpresaPost(Empresa empresa, Endereco endereco, Responsavel responsavel, Usuario user,
 			BindingResult result, Model model, RedirectAttributes attributes) {
-		
-		if (result.hasErrors()) {
-			attributes.addFlashAttribute("mensagem", "Campos nulos não são permitidos!");
-			return "redirect:/cadastrar/empresa";
-		}
-		
-		Usuario usr = ur.findByLogin(user.getLogin());
-		if (usr != null) {
-			model.addAttribute("cnpjExiste", "CNPJ já cadastrado!");
-			return "redirect:/cadastrar/empresa";
-		}
 
 		Role role = rr.findByNomeRole("ROLE_USER_EMPR");
 		List<Role> roles = new ArrayList<Role>();
@@ -98,11 +83,24 @@ public class InstituicaoController {
 		user.setRoles(roles);
 		user.setSenha(new BCryptPasswordEncoder().encode(user.getSenha()));
 		user.setLogin(empresa.getCnpj());
-		ur.save(user);
 
 		endereco.setInstituicao(empresa);
 		responsavel.setInstituicao(empresa);
 
+//		// VALIDATIONS
+//		if (result.hasErrors()) {
+//			attributes.addFlashAttribute("mensagem", "Campos nulos não são permitidos!");
+//			return "redirect:/cadastrar/empresa";
+//		}
+//
+//		Usuario usr = ur.findByLogin(user.getLogin());
+//		if (usr != null) {
+//			model.addAttribute("cnpjExiste", "CNPJ já cadastrado!");
+//			return "redirect:/cadastrar/empresa";
+//		}
+
+		// SAVING INTO DATABASE
+		ur.save(user);
 		empr.save(empresa);
 		endr.save(endereco);
 		respr.save(responsavel);
@@ -113,7 +111,8 @@ public class InstituicaoController {
 
 	// CADASTRO DA ONG
 	@RequestMapping(value = "/cadastrar/ong", method = RequestMethod.GET)
-	public String cadastrarOng() {
+	public String cadastrarOng(Model model) {
+		model.addAttribute("usuario", new Usuario());
 		return "instituicao/cadastrarOng";
 	}
 
@@ -138,22 +137,20 @@ public class InstituicaoController {
 		return "redirect:/cadastrar/ong";
 	}
 
-	@RequestMapping(value = "/buscar-instituicoes", method = RequestMethod.GET)
-	public String buscarInstituicoes() {
-		return "instituicao/buscarInstituicoes";
-	}
-
 	// BUSCAR INSTITUIÇÕES E PEGA A LISTA DE INSTITUIÇÕES
 	@RequestMapping(value = "/listaEmpresas", method = RequestMethod.GET)
-	public String listaEmpresas() {
+	public ModelAndView listaEmpresas() {
 		ModelAndView mv = new ModelAndView("instituicao/listaEmpresas");
 		// PROCURA A LISTA DE INSTITUICOES
 		Iterable<Instituicao> instituicoes = ir.findAll();
 		mv.addObject("instituicoes", instituicoes); // instituicoes = atributo que esta no html
 
-		return "instituicao/listaEmpresas";
+		return mv;
 	}
 
+	// PERFIS
+
+	// PERFIL DA EMPRESA
 	@RequestMapping(value = "/perfil-empresa", method = RequestMethod.GET)
 	public String perfilEmpresa() {
 		return "instituicao/perfilEmpresa";
