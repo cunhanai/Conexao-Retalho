@@ -6,5 +6,5 @@ import br.com.entra21.conexaoretalho.models.Empresa;
 
 public interface EmpresaRepository extends JpaRepository<Empresa, String> {
 
-	Empresa findByCnpj(String string);
+	Empresa findByCnpj(String cnpj);
 }

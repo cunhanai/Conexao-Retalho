@@ -6,5 +6,5 @@ import br.com.entra21.conexaoretalho.models.Instituicao;
 
 public interface InstituicaoRepository extends JpaRepository<Instituicao, String> {
 
-	Instituicao findByCnpj(long cnpj);
+	Instituicao findByCnpj(String cnpj);
 }

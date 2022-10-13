@@ -3,14 +3,11 @@ package br.com.entra21.conexaoretalho.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -152,9 +149,25 @@ public class InstituicaoController {
 	// PERFIS
 
 	// PERFIL DA EMPRESA
-	@RequestMapping(value = "/perfil-empresa", method = RequestMethod.GET)
-	public String perfilEmpresa(long codigo) {
-		return "instituicao/perfilEmpresa";
+	@RequestMapping(value = "/perfil/empresa", method = RequestMethod.GET)
+	public ModelAndView perfilEmpresa(long codigo) {
+		
+		ModelAndView mv = new ModelAndView("instituicao/perfilEmpresa");
+		
+		if (empr.findByCnpj(Long.toString(codigo)) != null) {
+			Empresa empresa = empr.findByCnpj(Long.toString(codigo));
+			mv.addObject("instituicao", empresa);
+			
+		} else if (or.findByCnpj(Long.toString(codigo)) != null) {
+			Ong ong = or.findByCnpj(Long.toString(codigo));
+			mv.addObject("instituicao", ong);
+		}
+		
+		Instituicao instituicao = ir.findByCnpj(Long.toString(codigo));
+		Iterable<Responsavel> responsaveis = respr.findByInstituicao(instituicao);
+		mv.addObject("lresponsaveis", responsaveis);
+		
+		return mv;
 	}
 
 	// OUTROS

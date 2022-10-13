@@ -6,4 +6,5 @@ import br.com.entra21.conexaoretalho.models.Ong;
 
 public interface OngRepository extends JpaRepository<Ong, String> {
 
+	Ong findByCnpj(String cnpj);
 }
