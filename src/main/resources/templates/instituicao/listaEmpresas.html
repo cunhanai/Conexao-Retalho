@@ -56,12 +56,15 @@
 	<!-- lista de eventos -->
 	<table class="container">
 		<thead>
-			<th>Nome das Instituições</th>
-			
+			<th>Nome das Instituições</th>		         
+	      
 		</thead>
 		<tbody>
-				<tr th:each ="instituicao: ${linstituicoes}">
-					<td><span th:text="${instituicao.nomeInstituicao}"></span></td>
+				<tr th:each ="instituicao: ${instituicoes}">
+					 <td><a
+					th:href="${(#mvc.url('IC#perfilEmpresa').arg(0, instituicao.cnpj)).build()}"><span
+						th:text="${instituicao.nomeInstituicao}"></span></a></td>
+					<!-- <td><span th:text="${instituicao.nomeInstituicao}"></span></td> --> 
 					
 					<!-- <td><a th:href="${(#mvc.url('EC#editarEvento').arg(0, evento.codigo)).build()}">
 						<i class="material-icons left btnIcon">edit</i></a></td>
@@ -71,5 +74,6 @@
 				</tr>
 		</tbody>
 	</table>
+	  <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 </html>
