@@ -41,11 +41,11 @@
 		<h5>Cadastro de Retalhos a ser doado</h5>
 		</div>
 		<!-- thymeleaf com nome da empresa que está cadastrando -->
-		
+		<p><span th:text="${empresa.nomeInstituicao}"></span></p>
 		<!-- lista de opcoes para baixo -->
-		Material: <input type="text" placeholder="tipo retalho a ser doado" value="" name="TipoDeRetalho"/>
-		Cor: <input type="text" placeholder="cor" value="" name="cor"/>
-		Quantidade: <input type="text" placeholder="Kg de retalhos" value="" name="QuantidadeDoação"/>
+		Material: <input type="text" placeholder="tipo retalho a ser doado" value="" name="material" required="required" />
+		Cor: <input type="text" placeholder="cor" value="" name="cor" required="required" />
+		Quantidade: <input type="text" placeholder="Kg de retalhos" value="" name="qtde" required="required" />
 		
 		
 	

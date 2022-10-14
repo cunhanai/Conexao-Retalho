@@ -59,7 +59,17 @@
 			<p> <span th:text="${instituicao.sobre}"></span></p>
 		</div>
 	
-	
+			<h4>Retalhos</h4>
+		<div class="row" th:each="retalho : ${lretalhos}">
+			<p>Código: <span th:text="{retalho.id}"></span></p>
+			<p>Material: <span th:text="{retalho.material}"></span></p>
+			<p>Cor: <span th:text="{retalho.cor}"></span></p>
+			<p>Quantidade disponível: <span th:text="{retalho.qtde}"></span></p>
+			
+			
+		</div>
+			<a th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, instituicao.cnpj)).build()}" class="waves-effect waves-light btn"><i
+					class="material-icons left">add_circle_outline</i>Cadastrar Retalho</a></li>
 		
 	</div>
 	

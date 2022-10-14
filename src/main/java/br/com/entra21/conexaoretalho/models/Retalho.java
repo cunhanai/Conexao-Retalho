@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Retalho implements Serializable {
@@ -17,13 +18,13 @@ public class Retalho implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	@NotBlank
+	@NotEmpty
 	private double qtde;
 	@NotBlank
 	private String cor;
 	@NotBlank
 	private String material;
-	@NotBlank
+
 	private boolean disponivel = true;
 	@ManyToOne
 	private Empresa empresa;

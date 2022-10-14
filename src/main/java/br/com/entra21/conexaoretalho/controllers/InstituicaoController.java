@@ -18,6 +18,7 @@ import br.com.entra21.conexaoretalho.models.Endereco;
 import br.com.entra21.conexaoretalho.models.Instituicao;
 import br.com.entra21.conexaoretalho.models.Ong;
 import br.com.entra21.conexaoretalho.models.Responsavel;
+import br.com.entra21.conexaoretalho.models.Retalho;
 import br.com.entra21.conexaoretalho.models.Role;
 import br.com.entra21.conexaoretalho.models.Usuario;
 import br.com.entra21.conexaoretalho.repository.EmpresaRepository;
@@ -150,31 +151,60 @@ public class InstituicaoController {
 
 	// PERFIL DA EMPRESA
 	@RequestMapping(value = "/perfil/empresa", method = RequestMethod.GET)
-	public ModelAndView perfilEmpresa(long codigo) {
+	public ModelAndView perfilEmpresa(long login) {
+		
+		String loginStr = Long.toString(login);
 		
 		ModelAndView mv = new ModelAndView("instituicao/perfilEmpresa");
 		
-		if (empr.findByCnpj(Long.toString(codigo)) != null) {
-			Empresa empresa = empr.findByCnpj(Long.toString(codigo));
+		if (empr.findByCnpj(loginStr) != null) {
+			Empresa empresa = empr.findByCnpj(loginStr);
 			mv.addObject("instituicao", empresa);
+			Iterable<Retalho> retalhos = retr.findByEmpresa(empresa);
+			mv.addObject("lretalhos", retalhos);
 			
-		} else if (or.findByCnpj(Long.toString(codigo)) != null) {
-			Ong ong = or.findByCnpj(Long.toString(codigo));
+		} else if (or.findByCnpj(loginStr) != null) {
+			Ong ong = or.findByCnpj(loginStr);
 			mv.addObject("instituicao", ong);
 		}
 		
-		Instituicao instituicao = ir.findByCnpj(Long.toString(codigo));
+		Instituicao instituicao = ir.findByCnpj(loginStr);
 		Iterable<Responsavel> responsaveis = respr.findByInstituicao(instituicao);
 		mv.addObject("lresponsaveis", responsaveis);
-		
+				
 		return mv;
 	}
 
-	// OUTROS
-
-	@RequestMapping("/cadastrar-retalho")
-	public String cadastrarRetalho() {
-		return "instituicao/cadastrarRetalho";
+	
+	// RETALHO
+	
+	// CADASTRAR RETALHO
+	@RequestMapping(value = "/cadastrar-retalho", method = RequestMethod.GET)
+	public ModelAndView cadastrarRetalho(long login) {
+		Empresa empresa = empr.findByCnpj(Long.toString(login));
+		ModelAndView mv = new ModelAndView("retalho/cadastrarRetalho");
+		mv.addObject("empresa", empresa);
+		
+		return mv;
+	}
+	
+	@RequestMapping(value = "/cadastrar-retalho", method = RequestMethod.POST)
+	public String cadastrarRetalhoPost(long login, Retalho retalho) {
+		String codLong = Long.toString(login);
+		Empresa empresa = empr.findByCnpj(codLong);
+		retalho.setEmpresa(empresa);
+		
+		List<Retalho> empRetalhos = empresa.getRetalhos();
+		empRetalhos.add(retalho);
+		empresa.setRetalhos(empRetalhos);
+		
+		System.out.println(retalho);
+		System.out.println(empresa);
+		
+		retr.save(retalho);
+		empr.save(empresa);
+		
+		return "redirect:/listaEmpresas";
 	}
 
 	@RequestMapping("/descricao-retalho")
