@@ -2,7 +2,9 @@ package br.com.entra21.conexaoretalho.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -151,46 +153,51 @@ public class InstituicaoController {
 
 	// PERFIL DA EMPRESA
 	@RequestMapping(value = "/perfil/empresa", method = RequestMethod.GET)
-	public ModelAndView perfilEmpresa(long login) {
+	public ModelAndView perfilEmpresa(long cnpj) {
+
+		String cnpjStr = Long.toString(cnpj);
+
+		ModelAndView mv;
+
 		
-		String loginStr = Long.toString(login);
-		
-		ModelAndView mv = new ModelAndView("instituicao/perfilEmpresa");
-		
-		if (empr.findByCnpj(loginStr) != null) {
-			Empresa empresa = empr.findByCnpj(loginStr);
+
+		if (empr.findByCnpj(cnpjStr) != null) {
+			mv = new ModelAndView("instituicao/perfilEmpresa");
+			Empresa empresa = empr.findByCnpj(cnpjStr);
 			mv.addObject("instituicao", empresa);
 			Iterable<Retalho> retalhos = retr.findByEmpresa(empresa);
 			mv.addObject("lretalhos", retalhos);
 			
-		} else if (or.findByCnpj(loginStr) != null) {
-			Ong ong = or.findByCnpj(loginStr);
+
+		} else {
+			mv = new ModelAndView("instituicao/perfilOng");
+			Ong ong = or.findByCnpj(cnpjStr);
 			mv.addObject("instituicao", ong);
+			
 		}
 		
-		Instituicao instituicao = ir.findByCnpj(loginStr);
+		Instituicao instituicao = ir.findByCnpj(cnpjStr);
 		Iterable<Responsavel> responsaveis = respr.findByInstituicao(instituicao);
 		mv.addObject("lresponsaveis", responsaveis);
-				
+
 		return mv;
 	}
 
-	
 	// RETALHO
-	
+
 	// CADASTRAR RETALHO
 	@RequestMapping(value = "/cadastrar-retalho", method = RequestMethod.GET)
-	public ModelAndView cadastrarRetalho(long login) {
-		Empresa empresa = empr.findByCnpj(Long.toString(login));
+	public ModelAndView cadastrarRetalho(long cnpj) {
+		Empresa empresa = empr.findByCnpj(Long.toString(cnpj));
 		ModelAndView mv = new ModelAndView("retalho/cadastrarRetalho");
 		mv.addObject("empresa", empresa);
-		
+
 		return mv;
 	}
-	
+
 	@RequestMapping(value = "/cadastrar-retalho", method = RequestMethod.POST)
-	public String cadastrarRetalhoPost(long login, Retalho retalho) {
-		String codLong = Long.toString(login);
+	public String cadastrarRetalhoPost(long cnpj, Retalho retalho) {
+		String codLong = Long.toString(cnpj);
 		Empresa empresa = empr.findByCnpj(codLong);
 		retalho.setEmpresa(empresa);
 		
@@ -207,9 +214,18 @@ public class InstituicaoController {
 		return "redirect:/listaEmpresas";
 	}
 
-	@RequestMapping("/descricao-retalho")
-	public String descricaoRetalho() {
-		return "instituicao/descricaoRetalho";
+	@RequestMapping(value = "/descricao-retalho", method = RequestMethod.GET)
+	public ModelAndView descricaoRetalho(String cnpj, long codigo) {
+		ModelAndView mv = new ModelAndView("retalho/descricaoRetalho");
+//		String codLong = Long.toString(cnpj);
+		
+		Retalho retalho = retr.findByCodigo(codigo);
+		Empresa empresa = empr.findByCnpj(cnpj);
+		
+		mv.addObject("empresa", empresa);
+		mv.addObject("retalho", retalho);
+		
+		return mv;
 
 	}
 

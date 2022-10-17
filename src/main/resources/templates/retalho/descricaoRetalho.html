@@ -50,54 +50,12 @@
 	<div class="container perfil">
 
 		<h4 align="center">
-			<span th:text="${instituicao.nomeInstituicao}"></span>
+			<span th:text="${retalho.codigo}"></span>
 		</h4>
-
-		<div class="row">
-			<!-- <p><span th:text="${instituicao.endereco}"></span></p> -->
-			<div th:each="responsavel : ${lresponsaveis}">
-				<h6>Responsáveis</h6>
-				<p>
-					<span th:text="${responsavel.nome}"></span>
-				</p>
-				<span th:text="${responsavel.telefone}"></span>
-				<p>
-					<span th:text="${responsavel.email}"></span>
-			</div>
-			<h6>Sobre</h6>
-			<p>
-				<span th:text="${instituicao.sobre}"></span>
-			</p>
-		</div>
-
-		<h4>Retalhos</h4>
-		<table class="container">
-			<thead>
-				<tr>
-					<th>Código:</th>
-					<th>Material:</th>
-					<th>Cor:</th>
-					<th>Quantidade disponível:</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="retalho : ${lretalhos}">
-					<td><a
-						th:href="${(#mvc.url('IC#descricaoRetalho').arg(0, instituicao.cnpj).arg(1, retalho.codigo)).build()}">
-							<span th:text="${retalho.codigo}"></span>
-					</a></td>
-					<td><span th:text="${retalho.material}"></span></td>
-					<td><span th:text="${retalho.cor}"></span></td>
-					<td><span th:text="${retalho.qtde}"></span></td>
-				</tr>
-			</tbody>
-		</table>
-
-		<a
-			th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, instituicao.cnpj)).build()}"
-			class="waves-effect waves-light btn"><i
-			class="material-icons left">add_circle_outline</i>Cadastrar Retalho</a>
-	</div>
+		<p><span th:text="${retalho.material}"></span></p>
+		<p><span th:text="${retalho.cor}"></span></p>
+		<p><span th:text="${retalho.qtde}"></span></p>
+</div>
 
 
 

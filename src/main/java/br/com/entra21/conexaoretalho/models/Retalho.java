@@ -17,24 +17,24 @@ public class Retalho implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-	@NotEmpty
+	private long codigo;
+	
 	private double qtde;
-	@NotBlank
+	
 	private String cor;
-	@NotBlank
+	
 	private String material;
 
 	private boolean disponivel = true;
 	@ManyToOne
 	private Empresa empresa;
 
-	public long getId() {
-		return id;
+	public long getCodigo() {
+		return codigo;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setCodigo(long codigo) {
+		this.codigo = codigo;
 	}
 
 	public double getQtde() {

@@ -7,6 +7,10 @@ import br.com.entra21.conexaoretalho.models.Retalho;
 
 public interface RetalhoRepository extends JpaRepository<Retalho, String> {
 
-	Iterable<Retalho> findByEmpresa(Empresa empresa);
+	Retalho findByCodigo(long codigo);
 	
+	Iterable<Retalho> findByEmpresa(Empresa empresa);
+
+//	Retalho findByCodigo(String idLong);
+
 }
