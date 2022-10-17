@@ -230,19 +230,29 @@ public class InstituicaoController {
 	}
 	
 	@RequestMapping(value = "/agendar-coleta", method = RequestMethod.GET)
-	public String agendarColeta() {
-
-		return "instituicao/agendarColeta";
+	public ModelAndView agendarColeta(String cnpj, long codigo) {
+		ModelAndView mv = new ModelAndView("retalho/agendarColeta");
+		
+		Retalho retalho = retr.findByCodigo(codigo);
+		Empresa empresa = empr.findByCnpj(cnpj);
+		
+		mv.addObject("empresa", empresa);
+		mv.addObject("retalho", retalho);
+		
+		return mv;
 	}
 
 	@RequestMapping(value = "/agendar-coleta", method = RequestMethod.POST)
-	public String agendarColeta(@Valid Instituicao instituicao, BindingResult result, RedirectAttributes attributes) {
-		if (result.hasErrors()) {
-			attributes.addFlashAttribute("mensagem", "Agenda indisponivel, marque para outro dia!");
-			return "redirect:/agendarColeta";
-		}
-		ir.save(instituicao);
-		attributes.addFlashAttribute("mensagem", "Coleta cadastrada com sucesso!");
+	public String agendarColetaPost(String cnpj, long codigo) {
+//		if (result.hasErrors()) {
+//			attributes.addFlashAttribute("mensagem", "Agenda indisponivel, marque para outro dia!");
+//			return "redirect:/agendarColeta";
+//		}
+//		ir.save(instituicao);
+//		attributes.addFlashAttribute("mensagem", "Coleta cadastrada com sucesso!");
+		
+		
+		
 		return "redirect:/agendarColeta";
 	}
 

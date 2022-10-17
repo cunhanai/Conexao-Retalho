@@ -55,6 +55,12 @@
 		<p><span th:text="${retalho.material}"></span></p>
 		<p><span th:text="${retalho.cor}"></span></p>
 		<p><span th:text="${retalho.qtde}"></span></p>
+		
+		
+		<a
+			th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, instituicao.cnpj).arg(1, retalho.codigo)).build()}"
+			class="waves-effect waves-light btn"><i
+			class="material-icons left">add_circle_outline</i>Agendar coleta</a>
 </div>
 
 
