@@ -2,9 +2,9 @@ package br.com.entra21.conexaoretalho.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-import org.hibernate.internal.build.AllowSysOut;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -226,6 +226,29 @@ public class InstituicaoController {
 		mv.addObject("retalho", retalho);
 		
 		return mv;
+
+	}
+	
+	@RequestMapping(value = "/agendar-coleta", method = RequestMethod.GET)
+	public String agendarColeta() {
+
+		return "instituicao/agendarColeta";
+	}
+
+	@RequestMapping(value = "/agendar-coleta", method = RequestMethod.POST)
+	public String agendarColeta(@Valid Instituicao instituicao, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "Agenda indisponivel, marque para outro dia!");
+			return "redirect:/agendarColeta";
+		}
+		ir.save(instituicao);
+		attributes.addFlashAttribute("mensagem", "Coleta cadastrada com sucesso!");
+		return "redirect:/agendarColeta";
+	}
+
+	@RequestMapping(value = "/produtos/ongs", method = RequestMethod.GET)
+	public String produtosOngs() {
+		return "instituicao/produtosOngs";
 
 	}
 
