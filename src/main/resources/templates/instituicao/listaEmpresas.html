@@ -35,43 +35,27 @@
 			    </div>
 	 		</nav>
 		</header>
-		<form class="container formCadastro" method="post">
-		    
-		        <h5 style="text-align:center">Instituições</h5>
-		        
-		        <!--  -->
-		        <div id="divBusca">
-		            <i    class="material-icons left">search</i>Pesquisar</a>        
-		              <input type="text" id="txtBusca" placeholder="Buscar..."/>
-		              <button id="btnBusca">Buscar</button>
-		              <!-- dados da empresa -->
-		        <div class="row">
-		        <!--  <h6>Dados da empresa</h6>
-		            Nome: <input type="text" value="" name="nomeInstituicao" placeholder="Nome..."/>
-		            CNPJ: <input type="text" value="" name="cnpj" placeholder="Cnpj..."/>-->
-		        </div>
-		    </div>
-		    </form>
 
-	<!-- lista de eventos -->
-	<table class="container">
-		<thead>
-			<th>Nome das Instituições</th>		         
-	      
-		</thead>
-		<tbody>
-				<tr th:each ="instituicao: ${instituicoes}">
-					 <td><a
-					th:href="${(#mvc.url('IC#perfilEmpresa').arg(0, instituicao.cnpj)).build()}"><span
-						th:text="${instituicao.nomeInstituicao}"></span></a></td>
-					<!-- <td><span th:text="${instituicao.nomeInstituicao}"></span></td> --> 
-					
-					<!-- <td><a th:href="${(#mvc.url('EC#editarEvento').arg(0, evento.codigo)).build()}">
-						<i class="material-icons left btnIcon">edit</i></a></td>
-					<td><a th:href="${(#mvc.url('EC#deletarEvento').arg(0, evento.codigo)).build()}">
-						<i class="material-icons left btnIcon">delete</i></a></td> -->
-						
-				</tr>
+		<!-- Buscar listas de Empresas-->
+		<form action="listaEmpresas" class="container formCadastro" method="get">
+            
+                <h5 style="text-align:center">Instituições</h5>               
+                
+                <div id="divBusca">
+                      <i class="material-icons left">search</i>Pesquisar por nome:</a>        
+                      <input name="buscarnome" type="text" id="txtBuscar" placeholder="Buscar..." required="required">
+                      <input id="txtBuscar" class="waves-effect waves-light btn" type="submit" value="Buscar" >                
+                </div>
+        </form>
+
+   <!-- lista de empresas -->
+    <table class="container">        
+            <th>Nome das Instituições</th>    
+                <tr th:each ="instituicao: ${instituicoes}">
+                    <td><a th:href="${(#mvc.url('IC#perfilEmpresa').arg(0, instituicao.cnpj)).build()}"><span
+                        th:text="${instituicao.nomeInstituicao}"></span></a></td>
+                    <!-- <td><span th:text="${instituicao.nomeInstituicao}"></span></td> -->                    
+                </tr>
 		</tbody>
 	</table>
 	  <script type="text/javascript" src="js/materialize.min.js"></script>
