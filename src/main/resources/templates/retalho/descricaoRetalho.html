@@ -52,16 +52,21 @@
 		<h4 align="center">
 			<span th:text="${retalho.codigo}"></span>
 		</h4>
-		<p><span th:text="${retalho.material}"></span></p>
-		<p><span th:text="${retalho.cor}"></span></p>
-		<p><span th:text="${retalho.qtde}"></span></p>
-		
-		
+		<p>
+			<span th:text="${retalho.material}"></span>
+		</p>
+		<p>
+			<span th:text="${retalho.cor}"></span>
+		</p>
+		<p>
+			<span th:text="${retalho.qtde}"></span>
+		</p>
+
 		<a
-			th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, instituicao.cnpj).arg(1, retalho.codigo)).build()}"
+			th:href="${(#mvc.url('IC#agendarColeta').arg(0, empresa.cnpj).arg(1, retalho.codigo)).build()}"
 			class="waves-effect waves-light btn"><i
 			class="material-icons left">add_circle_outline</i>Agendar coleta</a>
-</div>
+	</div>
 
 
 

@@ -7,8 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Retalho implements Serializable {
@@ -18,14 +17,18 @@ public class Retalho implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long codigo;
-	
+
 	private double qtde;
-	
+
 	private String cor;
-	
+
 	private String material;
 
 	private boolean disponivel = true;
+
+	@OneToOne
+	private AgendaColeta coleta;
+
 	@ManyToOne
 	private Empresa empresa;
 
@@ -79,6 +82,14 @@ public class Retalho implements Serializable {
 
 	public synchronized void setMaterial(String material) {
 		this.material = material;
+	}
+
+	public AgendaColeta getColeta() {
+		return coleta;
+	}
+
+	public void setColeta(AgendaColeta coleta) {
+		this.coleta = coleta;
 	}
 
 }

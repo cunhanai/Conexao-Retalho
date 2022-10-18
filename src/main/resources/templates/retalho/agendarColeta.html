@@ -1,28 +1,38 @@
 <!DOCTYPE html>
-<html>
-<head>
- <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      
-<meta>
+
+<head>
+
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="/materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta charset="UTF-8" name="viewport"
+	content="width=device-width, initial-scale=1.0" />
 <title>Agendar Coleta</title>
 
 <style>
-body{ background-size:cover;
-background-image:url("https://img.freepik.com/vetores-gratis/fundo-rosa-claro-com-formas-abstratas-dinamicas_1393-230.jpg?w=2000");
+body {
+	background-size: cover;
+	background-image:
+		url("https://img.freepik.com/vetores-gratis/fundo-rosa-claro-com-formas-abstratas-dinamicas_1393-230.jpg?w=2000");
+	width: 100%;
+	height: 100%;
+}
 
-width:100%;
-height:100%;
+p {
+	color: black;
+	font-family: helvitica;
 }
-p{ color:black;
-font-family:helvitica;
-}
-h1{ color:black;
+
+h1 {
+	color: black;
 }
 </style>
 </head>
@@ -30,51 +40,71 @@ h1{ color:black;
 
 
 <body>
-<nav>
-    <div style = "background: Black"class="nav-wrapper">
-      <a href="#" class="brand-logo">ConexãoRetalho.Entra21</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/listaEmpresas" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Instituições</a></li>
-             <li><a href="/logout" class="waves-effect waves-light btn"><i class="material-icons left">exit_to_app</i>Sair</a></li>
-      </ul>
-    </div>
-  </nav>
+	<nav>
+		<div style="background: Black" class="nav-wrapper">
+			<a href="#" class="brand-logo">ConexãoRetalho.Entra21</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="/listaEmpresas"
+					class="waves-effect waves-light btn"><i
+						class="material-icons left">format_list_bulleted</i>Lista de
+						Instituições</a></li>
+				<li><a href="/logout" class="waves-effect waves-light btn"><i
+						class="material-icons left">exit_to_app</i>Sair</a></li>
+			</ul>
+		</div>
+	</nav>
 
 
-  <h1 align="center" > Agenda de Conexão </h1>
-  <form class="container" method="post">
-  
-   <p> Nome:</p><input  style="color:black" type="text" value="" name ="nome" placeholder="Digite o nome do evento"/>
-        <div class= "row">
-            <div class = "input-field col s6">    
-              <p>  Local:</p><input  style="color:black" type="text" value=""  name="local"  placeholder="Digite o local do evento"/>
-            </div>
-            <div class = "input-field col s3">    
-               <p> Data:</p><input  style="color:black" type="date" value=""  name="data"/>
-            </div>
-            <div  class = "input-field col s3">   
-               <p> Horário:</p><input  style="color:black"  type="time" value=""  name="horario"/>
-            </div>
-        </div><br>
-   <input class="btn btn-primary" type="submit" value="Salvar">
-   <input class="btn btn-primary" type="reset" value="Excluir">
-   	<table class=container>
-      
-    
-   
+	<h1 align="center">Agenda de Conexão</h1>
+	<form class="container" method="post">
 
-<thead>
-         <tr>
-         <th> NOME DO RESPONSAVEL </th>
-         <th> LOCAL DA COLETA </th>
-         <th> DATA DA COLETA </th>
-         <th> HORARIO DA COLETA </th>
-         
-         </tr>
-      </thead>
-      <tbody>
-<!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+		<p>Empresa doadora:</p>
+		<p style="color: black">
+			<span th:text="${empresa.nomeInstituicao}"></span>
+		</p>
+
+		<div class="row">
+			<div class="input-field col s6">
+				<p>Local:</p>
+				<p style="color: black">
+					LOCAL AINDA NAO ADICIONADO
+					<!-- 
+					<span th:text="${endereco.rua}"></span> -->
+				</p>
+			</div>
+			<div class="input-field col s3">
+				<p>Data:</p>
+				<input style="color: black" type="date" value="" name="data" />
+			</div>
+			<div class="input-field col s3">
+				<p>Horário:</p>
+				<input style="color: black" type="time" value="" name="hora" />
+			</div>
+		</div>
+		<br> <input class="btn btn-primary" type="submit" value="Salvar">
+		<input class="btn btn-primary" type="reset" value="Excluir">
+	</form>
+
+	<table class=container>
+
+
+
+
+		<thead>
+			<tr>
+				<th>NOME DO RESPONSAVEL</th>
+				<th>LOCAL DA COLETA</th>
+				<th>DATA DA COLETA</th>
+				<th>HORARIO DA COLETA</th>
+
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
 </body>
 
 </html>
