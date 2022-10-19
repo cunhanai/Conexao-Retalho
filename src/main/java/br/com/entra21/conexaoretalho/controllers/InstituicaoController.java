@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -145,15 +146,19 @@ public class InstituicaoController {
 	}
 
 	// BUSCAR INSTITUIÇÕES E PEGA A LISTA DE INSTITUIÇÕES
-	@RequestMapping(value = "/lista", method = RequestMethod.GET)
-	public ModelAndView listaEmpresas() {
-		ModelAndView mv = new ModelAndView("instituicao/listaEmpresas");
-		// PROCURA A LISTA DE INSTITUICOES
+	//PEGA E MOSTRA A LISTA DE INSTITUIÇÕES -- GET
+	@RequestMapping(value = "/listaEmpresas", method = RequestMethod.GET)
+	public ModelAndView listaEmpresas(@RequestParam(value="buscarnome", defaultValue="") String buscarnome) {		
+		
+		ModelAndView modelAndView = new ModelAndView("instituicao/listaEmpresas");		
+		
 		Iterable<Instituicao> instituicoes = ir.findAll();
-		mv.addObject("instituicoes", instituicoes); // instituicoes = atributo que esta no html
+		modelAndView.addObject("instituicoes", instituicoes);
+		
+		modelAndView.addObject("instituicoes", ir.findByNomeInstituicaoIgnoreCaseContaining(buscarnome));        
 
-		return mv;
-	}
+		return modelAndView;
+	}	
 
 	// PERFIS
 
