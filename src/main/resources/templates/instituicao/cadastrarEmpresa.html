@@ -3,102 +3,154 @@
 	xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-
 <head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="AuThemes Templates">
+    <meta name="author" content="AuCreative">
+    <meta name="keywords" content="AuThemes Templates">
 
-	<!--Import Google Icon Font-->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<!--Import materialize.css-->
-	<link type="text/css" rel="stylesheet"
-		href="/materialize/css/materialize.min.css" media="screen,projection" />
-	
-	<!--Let browser know website is optimized for mobile-->
-	<meta charset="UTF-8"
-		 name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-	<!-- importacao do css -->
-	<!--  <link rel="stylesheet" href="style/styleCss.css"> -->
+    <!-- Title Page-->
+    <title>Cadastro Empresa - Conexão Retalho</title>
 
-<title>Retalhando - Cadastro de Empresas</title>
+    <!-- Icons font CSS-->
+    <link href="/style/cad/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="/style/cad/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
+    <!-- Vendor CSS-->
+
+    <!-- Main CSS-->
+    <link href="/style/cad/css/main.css" rel="stylesheet" media="all">
 </head>
+
 <body>
-
-<!-- navbar -->
-	<nav>
-    <div class="nav-wrapper #00695c teal darken-3">
-      <a href="#" class="brand-logo">Conexão Retalho</a>
-      <ul id="nav-mobile" class="right ">
-      <!-- <ul id="nav-mobile" class="right hide-on-med-and-down"> -->
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/cadastrar/ong">Cadastrar ONG</a></li>
-      </ul>
+    <div class="page-wrapper bg-img-1 p-t-275 p-b-100">
+        <div class="wrapper wrapper--w690">
+            <div class="card card-1">
+                <div class="card-heading">
+                    <h2 class="title">Cadastro Empresa</h2>
+                </div>
+                <div class="card-body">
+                    <form class="wizard-container" method="POST" action="#" id="js-wizard-form">
+                        <div class="progress" id="js-progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                                <span class="progress-val">40%</span>
+                            </div>
+                        </div>
+                        <ul class="nav nav-tab">
+                            <li class="active">
+                                <a href="#tab1" data-toggle="tab">1</a>
+                            </li>
+                            <li>
+                                <a href="#tab2" data-toggle="tab">1</a>
+                            </li>
+                            <li>
+                                <a href="#tab3" data-toggle="tab">1</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1">
+                                <div class="input-group">
+                                    <label class="label">Nome Empresa *</label>
+                                    <input class="input--style-1" type="text" name="nomeInstituicao" value="" required="required" placeholder="ex: Conexão Retalho Ltda.">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">CNPJ / Username *</label>
+                                    <input class="input--style-1" type="text" value="" name="cnpj" required="required" placeholder="ex: 57521548140451 ou admin">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">Email: *</label>
+                                    <i class="zmdi zmdi-email"></i>
+                                    <input class="input--style-1" type="email" value="" name="emailCadastro" required="required" placeholder="ex: exemplo@email.com">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">Senha: *</label>
+                                    <input class="input--style-1" type="password" value="" name="senha" required="required" placeholder="ex: 12345">
+                                </div>
+                                <div class="btn-next-con">
+                                    <a class="btn-next" href="#">Next</a>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab2">
+                                <div class="input-group">
+                                    <label class="label">CEP:</label>
+                                    <input class="input--style-1" type="text" value="" name="cep" required="required" placeholder="ex: 12345-678">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">Rua:</label>
+                                    <input class="input--style-1" type="text" value="" name="rua" required="required" placeholder="ex: Rua das Nações">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">Número:</label>
+                                    <input class="input--style-1" type="text" value="" name="numero" required="required" placeholder="ex: 10">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">Complemento:</label>
+                                    <input class="input--style-1" type="text" value="" name="complemento" required="required" placeholder="ex: apto. 101">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">Bairro:</label>
+                                    <input class="input--style-1" type="text" value="" name="bairro" required="required" placeholder="ex: apto. Centro">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">Cidade</label>
+                                    <input class="input--style-1" type="text" value="" name="cidade" required="required" placeholder="ex: São Paulo">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">Estado</label>
+                                    <input class="input--style-1" type="text" value="" name="estado" required="required" placeholder="ex: São Paulo">
+                                </div>
+                                <div class="btn-next-con">
+                                    <a class="btn-back" href="#">back</a>
+                                    <a class="btn-next" href="#">Next</a>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab3">
+                                <div class="input-group">
+                                    <label class="label">Responsável:</label>
+                                    <input class="input--style-1" type="text" value="" name="nome" required="required" placeholder="ex: Maria Silva">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">Email:</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-1" type="email" value="" name="email" required="required" placeholder="ex: exemplo@email.com">
+                                        <i class="zmdi zmdi-card input-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">Telefone:</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-1" type="tel" value="" name="telefone" required="required" placeholder="ex: 4712345-6789">
+                                        <i class="zmdi zmdi-email input-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="btn-next-con">
+                                    <a class="btn-back" href="#">back</a>
+                                    <button class="btn-last" type="submit">Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-  </nav>
 
-	<!-- formulario de cadastro de empresas -->
-	<th:block th:include="mensagemValidacao"></th:block>
-	<form class="container formCadastro" method="post">
-		<h5>Cadastrar Empresa</h5>
-	
-			
-		<!-- dados da empresa -->
-		<h6>Dados da empresa</h6>
-			Nome: <input type="text" value="" name="nomeInstituicao" required="required"/>
-			CNPJ: <input type="text" value="" name="cnpj" required="required"/>
-			<span class="mensagem" th:if="${cnpjExiste}" th:text="${cnpjExiste}"></span>
-			
-			E-mail: <input type="text" placeholder="email de cadastro da instituição"  value="" name="emailCadastro" required="required"/>
-            Senha: <input type="password" placeholder="senha"  value="" name="senha" required="required"/>
-		
-		<!-- endereco endereco -->
-		<h6>Endereço</h6>
-		
-			<div class="row">
-				<div class="input-field col s3">	
-					CEP: <input type="text" value="" name="cep" required="required"/>
-				</div>	
-				<div  class="input-field col s9">
-					Rua: <input type="text" value="" name="rua" required="required"/>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s1">
-					Numero: <input type="text" value="" name="numero" required="required"/>
-				</div>
-				<div class="input-field col s2">
-					Complemento: <input type="text" value="" name="complemento" required="required"/>
-				</div>
-				<div class="input-field col s3">
-					Bairro: <input type="text" value="" name="bairro" required="required"/>
-				</div>
-				<div class="input-field col s3">
-					Cidade: <input type="text" value="" name="cidade" required="required"/>
-				</div>
-				<div class="input-field col s3">
-					Estado: <input type="text" value="" name="estado" required="required"/>
-				</div>
-			</div>
+    <!-- Jquery JS-->
+    <script src="/style/cad/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="/style/cad/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="/style/cad/vendor/bootstrap-wizard/bootstrap.min.js"></script>
+    <script src="/style/cad/vendor/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
 
-		<!-- responsaveis -->
-		<h6>Responsavel 1</h6>
-			Nome: <input type="text" value="" name="nome" required="required"/>
-			<div class="row">
-				<div class="input-field col s8">
-					email: <input type="text" value="" name="email" required="required"/>
-				</div>
-				<div class="input-field col s4">
-					telefone: <input type="text" value="" name="telefone" required="required"/>
-				</div>
-			</div>
+    <!-- Main JS-->
+    <script src="/style/cad/js/global.js"></script>
 
-		<button class="waves-effect waves-light btn" type="submit">Salvar</button>
-
-	
-	</form>
-
-
-	<!--JavaScript at end of body for optimized loading-->
-	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
+
 </html>
+<!-- end document-->

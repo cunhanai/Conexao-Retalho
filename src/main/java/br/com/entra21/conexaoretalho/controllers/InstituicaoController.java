@@ -146,43 +146,54 @@ public class InstituicaoController {
 	}
 
 	// BUSCAR INSTITUIÇÕES E PEGA A LISTA DE INSTITUIÇÕES
-	//PEGA E MOSTRA A LISTA DE INSTITUIÇÕES -- GET
-	@RequestMapping(value = "/listaEmpresas", method = RequestMethod.GET)
-	public ModelAndView listaEmpresas(@RequestParam(value="buscarnome", defaultValue="") String buscarnome) {		
-		
-		ModelAndView modelAndView = new ModelAndView("instituicao/listaEmpresas");		
-		
-		Iterable<Instituicao> instituicoes = ir.findAll();
-		modelAndView.addObject("instituicoes", instituicoes);
-		
-		modelAndView.addObject("instituicoes", ir.findByNomeInstituicaoIgnoreCaseContaining(buscarnome));        
+	// PEGA E MOSTRA A LISTA DE INSTITUIÇÕES -- GET
+	@RequestMapping(value = "/lista", method = RequestMethod.GET)
+	public ModelAndView listaEmpresas(@RequestParam(value = "buscarnome", defaultValue = "") String buscarnome) {
 
-		return modelAndView;
-	}	
+		ModelAndView mv = new ModelAndView("instituicao/listaEmpresas");
+
+		Iterable<Instituicao> instituicoes = ir.findAll();
+		mv.addObject("instituicoes", instituicoes);
+
+		mv.addObject("instituicoes", ir.findByNomeInstituicaoIgnoreCaseContaining(buscarnome));
+
+		return mv;
+	}
 
 	// PERFIS
 
 	// PERFIL DA EMPRESA
 	@RequestMapping(value = "/{cnpj}", method = RequestMethod.GET)
 	public ModelAndView perfilEmpresa(@PathVariable("cnpj") String cnpj) {
-
 		ModelAndView mv;
+		Instituicao instituicao;
 
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+
+		String pacote = (or.findByCnpj(username) == null) ? "empresaView" : "ongView";
+		
 		if (empr.findByCnpj(cnpj) != null) {
+
 			mv = new ModelAndView("instituicao/perfilEmpresa");
 			Empresa empresa = empr.findByCnpj(cnpj);
 			mv.addObject("instituicao", empresa);
+
 			Iterable<Retalho> retalhos = retr.findByEmpresa(empresa);
 			mv.addObject("lretalhos", retalhos);
+			
+			instituicao = empresa;
 
 		} else {
+			// ERRO NOMEINSTITUICAO AQUI
 			mv = new ModelAndView("instituicao/perfilOng");
 			Ong ong = or.findByCnpj(cnpj);
 			mv.addObject("instituicao", ong);
+			
+			instituicao = ong;
 
 		}
 
-		Instituicao instituicao = ir.findByCnpj(cnpj);
 		Iterable<Responsavel> responsaveis = respr.findByInstituicao(instituicao);
 		mv.addObject("lresponsaveis", responsaveis);
 
@@ -192,19 +203,18 @@ public class InstituicaoController {
 	// RETALHO
 
 	// CADASTRAR RETALHO
-	@RequestMapping(value = "/cadastrar-retalho", method = RequestMethod.GET)
-	public ModelAndView cadastrarRetalho(long cnpj) {
-		Empresa empresa = empr.findByCnpj(Long.toString(cnpj));
+	@RequestMapping(value = "/{cnpj}/retalho/cadastrar", method = RequestMethod.GET)
+	public ModelAndView cadastrarRetalho(@PathVariable("cnpj") String cnpj) {
+		Empresa empresa = empr.findByCnpj(cnpj);
 		ModelAndView mv = new ModelAndView("retalho/cadastrarRetalho");
 		mv.addObject("empresa", empresa);
 
 		return mv;
 	}
 
-	@RequestMapping(value = "/cadastrar-retalho", method = RequestMethod.POST)
-	public String cadastrarRetalhoPost(long cnpj, Retalho retalho) {
-		String codLong = Long.toString(cnpj);
-		Empresa empresa = empr.findByCnpj(codLong);
+	@RequestMapping(value = "/{cnpj}/retalho/cadastrar", method = RequestMethod.POST)
+	public String cadastrarRetalhoPost(@PathVariable("cnpj") String cnpj, Retalho retalho) {
+		Empresa empresa = empr.findByCnpj(cnpj);
 		retalho.setEmpresa(empresa);
 
 		List<Retalho> empRetalhos = empresa.getRetalhos();
@@ -214,7 +224,7 @@ public class InstituicaoController {
 		retr.save(retalho);
 		empr.save(empresa);
 
-		return "redirect:/lista";
+		return "redirect:/{cnpj}";
 	}
 
 	@RequestMapping(value = "/{cnpj}/retalho/{codigo}", method = RequestMethod.GET)
@@ -248,7 +258,8 @@ public class InstituicaoController {
 	}
 
 	@RequestMapping(value = "/{cnpj}/retalho/{codigo}/agendar", method = RequestMethod.POST)
-	public String agendarColetaPost(@PathVariable("cnpj") String cnpj, @PathVariable("codigo") long codigo, AgendaColeta agendaColeta) {
+	public String agendarColetaPost(@PathVariable("cnpj") String cnpj, @PathVariable("codigo") long codigo,
+			AgendaColeta agendaColeta) {
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String username = auth.getName();
