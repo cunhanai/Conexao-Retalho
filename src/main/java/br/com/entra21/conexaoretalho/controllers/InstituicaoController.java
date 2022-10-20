@@ -95,18 +95,6 @@ public class InstituicaoController {
 		endereco.setInstituicao(empresa);
 		responsavel.setInstituicao(empresa);
 
-//		// VALIDATIONS
-//		if (result.hasErrors()) {
-//			attributes.addFlashAttribute("mensagem", "Campos nulos não são permitidos!");
-//			return "redirect:/cadastrar/empresa";
-//		}
-//
-//		Usuario usr = ur.findByLogin(user.getLogin());
-//		if (usr != null) {
-//			model.addAttribute("cnpjExiste", "CNPJ já cadastrado!");
-//			return "redirect:/cadastrar/empresa";
-//		}
-
 		// SAVING INTO DATABASE
 		ur.save(user);
 		empr.save(empresa);
@@ -114,7 +102,7 @@ public class InstituicaoController {
 		respr.save(responsavel);
 
 		attributes.addFlashAttribute("mensagem", "Usuário salvo com sucesso!");
-		return "redirect:/cadastrar/empresa";
+		return "redirect:/login";
 	}
 
 	// CADASTRO DA ONG
@@ -142,7 +130,7 @@ public class InstituicaoController {
 		endr.save(endereco);
 		respr.save(responsavel);
 
-		return "redirect:/cadastrar/ong";
+		return "redirect:/login";
 	}
 
 	// BUSCAR INSTITUIÇÕES E PEGA A LISTA DE INSTITUIÇÕES

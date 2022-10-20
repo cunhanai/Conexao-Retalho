@@ -16,5 +16,10 @@ public class HomeController {
 		return "login";
 		
 	}
+	
+	@RequestMapping("/principal")
+	public String principal() {
+		return "principal";
+	}
 
 }
