@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.formLogin()
 				.loginPage("/login").permitAll()
 				// change it once the inside main page is created
-				.defaultSuccessUrl("/", true)
+				.defaultSuccessUrl("/principal", true)
 				.failureUrl("/login?error=true")
 		.and()
 			.exceptionHandling().accessDeniedHandler(accessDeniedHandler())

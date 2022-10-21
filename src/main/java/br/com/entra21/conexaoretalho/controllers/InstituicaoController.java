@@ -72,6 +72,22 @@ public class InstituicaoController {
 	@Autowired
 	private AgendaColetaRepository acr;
 
+	
+	//PRINCIPAl
+	@RequestMapping("/principal")
+	public ModelAndView principal() {
+		
+		ModelAndView mv = new ModelAndView("principal");
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		
+		Instituicao instituicao = ir.findByCnpj(username);
+		mv.addObject("instituicao", instituicao);
+		
+		return mv;
+	}
+
 	// CADASTRO
 
 	// CADASTRO DE EMPRESA

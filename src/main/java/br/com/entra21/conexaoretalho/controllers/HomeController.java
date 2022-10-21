@@ -17,9 +17,5 @@ public class HomeController {
 		
 	}
 	
-	@RequestMapping("/principal")
-	public String principal() {
-		return "principal";
-	}
-
+	
 }
