@@ -28,6 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable()
 		.httpBasic().disable()
 		.authorizeRequests()
+			.antMatchers(HttpMethod.GET, "/").permitAll()
 			.antMatchers(HttpMethod.GET, "/cadastrar/ong").permitAll()
 			.antMatchers(HttpMethod.GET, "/cadastrar/empresa").permitAll()
 			.antMatchers(HttpMethod.GET, "/cadastrar").permitAll()
@@ -64,7 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/materialize/**", "/style/**", "/error", "/afterlogout");
+		web.ignoring().antMatchers("/materialize/**", "/style/**", "/error", "/assets/**", "/bootstrap/**");
 	}
 	
 	@Bean
