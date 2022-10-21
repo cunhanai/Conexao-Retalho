@@ -135,7 +135,7 @@ public class InstituicaoController {
 
 	// BUSCAR INSTITUIÇÕES E PEGA A LISTA DE INSTITUIÇÕES
 	// PEGA E MOSTRA A LISTA DE INSTITUIÇÕES -- GET
-	@RequestMapping(value = "/lista", method = RequestMethod.GET)
+	@RequestMapping(value = "/listaEmpresas", method = RequestMethod.GET) //Corrigido
 	public ModelAndView listaEmpresas(@RequestParam(value = "buscarnome", defaultValue = "") String buscarnome) {
 
 		ModelAndView mv = new ModelAndView("instituicao/listaEmpresas");
