@@ -25,6 +25,10 @@ body {
   max-width: 42em;
 }
 
+img{
+	width: 45%;
+}
+
 
 /*
  * Header
