@@ -7,5 +7,5 @@ import br.com.entra21.conexaoretalho.models.Instituicao;
 
 public interface EnderecoRepository extends JpaRepository<Endereco, String> {
 
-	Iterable<Endereco> findByInstituicao(Instituicao instituicao);
+	Endereco findByInstituicao(Instituicao instituicao);
 }

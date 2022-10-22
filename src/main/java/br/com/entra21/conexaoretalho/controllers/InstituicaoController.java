@@ -200,6 +200,9 @@ public class InstituicaoController {
 
 		Iterable<Responsavel> responsaveis = respr.findByInstituicao(instituicao);
 		mv.addObject("lresponsaveis", responsaveis);
+		
+		Endereco endereco = endr.findByInstituicao(instituicao);
+		mv.addObject("endereco", endereco);
 
 		return mv;
 	}
@@ -252,7 +255,7 @@ public class InstituicaoController {
 
 		Retalho retalho = retr.findByCodigo(codigo);
 		Empresa empresa = empr.findByCnpj(cnpj);
-		Iterable<Endereco> endereco = endr.findByInstituicao(empresa);
+		Endereco endereco = endr.findByInstituicao(empresa);
 
 		mv.addObject("empresa", empresa);
 		mv.addObject("retalho", retalho);
