@@ -72,19 +72,18 @@ public class InstituicaoController {
 	@Autowired
 	private AgendaColetaRepository acr;
 
-	
-	//PRINCIPAl
+	// PRINCIPAl
 	@RequestMapping("/principal")
 	public ModelAndView principal() {
-		
+
 		ModelAndView mv = new ModelAndView("principal");
-		
+
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String username = auth.getName();
-		
+
 		Instituicao instituicao = ir.findByCnpj(username);
 		mv.addObject("instituicao", instituicao);
-		
+
 		return mv;
 	}
 
@@ -151,7 +150,7 @@ public class InstituicaoController {
 
 	// BUSCAR INSTITUIÇÕES E PEGA A LISTA DE INSTITUIÇÕES
 	// PEGA E MOSTRA A LISTA DE INSTITUIÇÕES -- GET
-	@RequestMapping(value = "/listaEmpresas", method = RequestMethod.GET) //Corrigido
+	@RequestMapping(value = "/listaEmpresas", method = RequestMethod.GET) // Corrigido
 	public ModelAndView listaEmpresas(@RequestParam(value = "buscarnome", defaultValue = "") String buscarnome) {
 
 		ModelAndView mv = new ModelAndView("instituicao/listaEmpresas");
@@ -173,39 +172,76 @@ public class InstituicaoController {
 		Instituicao instituicao;
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String username = auth.getName();
+		String usuario = auth.getName();
 
-		String pacote = (or.findByCnpj(username) == null) ? "empresaView" : "ongView";
-		
+		String pacote = (cnpj.equals(usuario)) ? "userView"
+				: ((or.findByCnpj(usuario) == null) ? "empresaView" : "ongView");
+
 		if (empr.findByCnpj(cnpj) != null) {
 
-			mv = new ModelAndView("instituicao/perfilEmpresa");
+			mv = new ModelAndView(pacote + "/perfilEmpresa");
 			Empresa empresa = empr.findByCnpj(cnpj);
 			mv.addObject("instituicao", empresa);
 
 			Iterable<Retalho> retalhos = retr.findByEmpresa(empresa);
 			mv.addObject("lretalhos", retalhos);
-			
+
 			instituicao = empresa;
 
 		} else {
 			// ERRO NOMEINSTITUICAO AQUI
-			mv = new ModelAndView("instituicao/perfilOng");
+			mv = new ModelAndView(pacote + "/perfilOng");
 			Ong ong = or.findByCnpj(cnpj);
 			mv.addObject("instituicao", ong);
-			
+
 			instituicao = ong;
 
 		}
 
 		Iterable<Responsavel> responsaveis = respr.findByInstituicao(instituicao);
 		mv.addObject("lresponsaveis", responsaveis);
-		
+
 		Endereco endereco = endr.findByInstituicao(instituicao);
 		mv.addObject("endereco", endereco);
 
 		return mv;
 	}
+	
+	// EDITAR PERFIL
+	@RequestMapping(value = "/{cnpj}/editar", method = RequestMethod.GET)
+	public ModelAndView editarPerfil(@PathVariable("cnpj") String cnpj) {
+		ModelAndView mv = new ModelAndView("userView/editarPerfil");
+		Instituicao instituicao = ir.findByCnpj(cnpj);
+		mv.addObject("instituicao", instituicao);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/{cnpj}/editar", method = RequestMethod.POST)
+	public String editarPerfilPost(@PathVariable("cnpj") String cnpj, Instituicao instituicao) {
+	
+		ir.save(instituicao);
+		
+		return "redirect:/{cnpj}";
+	}
+	
+	/*
+	 * 
+
+	
+	@RequestMapping(value = "/editar", method = RequestMethod.POST)
+	public String editarEventoPost(long codigo, @Valid Evento evento, BindingResult result,
+			RedirectAttributes attributes) {
+
+		// VERIFICA SE OS CAMPOS FORAM PREENCHIDOS
+		if (result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "Verifique os campos!");
+			return "redirect:/editar";
+		}
+
+		er.save(evento);
+		return "redirect:/eventos";
+	}
+	 */
 
 	// RETALHO
 
