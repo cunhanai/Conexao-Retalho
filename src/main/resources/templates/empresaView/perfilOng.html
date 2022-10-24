@@ -37,26 +37,11 @@
 							<li><a href="/listaEmpresas">Buscar Instituição</a></li>
 							<li><a href="#">Buscar Retalho</a></li>
 						</ul></li>
-					<li><a
-						th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, instituicao.cnpj)).build()}">Cadastrar
-							retalho</a></li>
+					<li><a href="/cadastrar/retalho">Cadastrar retalho</a></li>
 					<li><a href="#">Feedback</a></li>
 					<li><a href="/logout">Logout</a></li>
 				</ul>
 
-				<div class="footer">
-					<p>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;
-						<script>
-							document.write(new Date().getFullYear());
-						</script>
-						All rights reserved | This template is made with <i
-							class="icon-heart" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank">Colorlib.com</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					</p>
-				</div>
 
 			</div>
 		</nav>

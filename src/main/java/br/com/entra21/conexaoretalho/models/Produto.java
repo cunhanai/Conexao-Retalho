@@ -3,6 +3,7 @@ package br.com.entra21.conexaoretalho.models;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class Produto implements Serializable {
 	private String descricaoo;
 	
 	private boolean disponivel = true;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Ong ong;
 
 	public long getId() {
