@@ -30,8 +30,7 @@
 					style="background-image: url(/style/img/logo-fundo.jpeg);"></a>
 				<ul class="list-unstyled components mb-5">
 
-					<li><a href="/perfil">Perfil</a>
-					</li>
+					<li><a href="/perfil">Perfil</a></li>
 					<li><a href="#pageSubmenu" data-toggle="collapse"
 						aria-expanded="false" class="dropdown-toggle">Buscar</a>
 						<ul class="collapse list-unstyled" id="pageSubmenu">
@@ -85,7 +84,8 @@
 							<li class="nav-item"><a class="nav-link"
 								href="${(#mvc.url('IC#editarPerfil').arg(0, instituicao.cnpj)).build()}">Editar</a>
 							</li>
-							<li class="nav-item active"><a class="nav-link" th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, instituicao.cnpj)).build()}">Cadastrar
+							<li class="nav-item active"><a class="nav-link"
+								th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, instituicao.cnpj)).build()}">Cadastrar
 									Retalho</a></li>
 						</ul>
 					</div>
@@ -140,11 +140,8 @@
 				<div th:each="retalho : ${lretalhos}" class="card inline-block"
 					style="width: 18rem;">
 					<div class="card-body">
-						<h6 class="card-title">
-							<a
-								th:href="${(#mvc.url('IC#descricaoRetalho').arg(0, instituicao.cnpj).arg(1, retalho.codigo)).build()}">Retalho
-								de <span th:text="${retalho.material}"></span>
-							</a>
+						<h6 class="card-title" style="color: #9053c7">
+							Retalho de <span th:text="${retalho.material}"></span>
 						</h6>
 						<p class="card-subtitle mb-2 text-muted">
 							Cor: <span th:text="${retalho.cor}"></span>
@@ -152,7 +149,7 @@
 						<p class="card-subtitle mb-2 text-muted">
 							Quantidade: <span th:text="${retalho.qtde}"></span>kg
 						</p>
-						<a href="#" class="card-link">Editar</a>
+						<a th:href="${(#mvc.url('IC#editarRetalho').arg(0, instituicao.cnpj).arg(1, retalho.codigo)).build()}" class="card-link">Editar</a>
 					</div>
 				</div>
 

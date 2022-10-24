@@ -139,8 +139,8 @@
 				<div th:each="produto : ${lprodutos}" class="card inline-block"
 					style="width: 18rem;">
 					<div class="card-body">
-						<h6 class="card-title">
-							<a href="#"> <span th:text="${produto.nome}"></span></a>
+						<h6 class="card-title" style="color: #9053c7">
+							<span th:text="${produto.nome}"></span>
 						</h6>
 						<h6 class="card-subtitle mb-2 text-muted">
 							R$ <span th:text="${produto.preco}"></span>

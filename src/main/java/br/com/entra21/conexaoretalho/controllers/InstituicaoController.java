@@ -280,19 +280,27 @@ public class InstituicaoController {
 		return "redirect:/{cnpj}";
 	}
 
-	@RequestMapping(value = "/{cnpj}/retalho/{codigo}", method = RequestMethod.GET)
-	public ModelAndView descricaoRetalho(@PathVariable("cnpj") String cnpj, @PathVariable("codigo") long codigo) {
-		ModelAndView mv = new ModelAndView("retalho/descricaoRetalho");
-//		String codLong = Long.toString(cnpj);
+	@RequestMapping(value = "/{cnpj}/retalho/{codigo}/editar", method = RequestMethod.GET)
+	public ModelAndView editarRetalho(@PathVariable("cnpj") String cnpj, @PathVariable("codigo") long codigo) {
+		ModelAndView mv = new ModelAndView("retalho/editarRetalho");
+
+		Empresa empresa = empr.findByCnpj(cnpj);
+		mv.addObject("empresa", empresa);
 
 		Retalho retalho = retr.findByCodigo(codigo);
-		Empresa empresa = empr.findByCnpj(cnpj);
-
-		mv.addObject("empresa", empresa);
 		mv.addObject("retalho", retalho);
 
 		return mv;
+	}
 
+	@RequestMapping(value = "/{cnpj}/retalho/{codigo}/editar", method = RequestMethod.POST)
+	public String editarRetalhoPost(@PathVariable("cnpj") String cnpj, @PathVariable("codigo") long codigo,
+			Retalho retalho) {
+		Empresa empresa = empr.findByCnpj(cnpj);
+		retalho.setEmpresa(empresa);
+		retr.save(retalho);
+		
+		return "redirect:/{cnpj}";
 	}
 
 	@RequestMapping(value = "/{cnpj}/retalho/{codigo}/agendar", method = RequestMethod.GET)
@@ -357,19 +365,4 @@ public class InstituicaoController {
 		return "redirect:/{cnpj}";
 	}
 
-//	// CADASTRAR RETALHO
-//	@RequestMapping(value = "/{cnpj}/retalho/cadastrar", method = RequestMethod.POST)
-//	public String cadastrarRetalhoPost(@PathVariable("cnpj") String cnpj, Retalho retalho) {
-//		Empresa empresa = empr.findByCnpj(cnpj);
-//		retalho.setEmpresa(empresa);
-//
-//		List<Retalho> empRetalhos = empresa.getRetalhos();
-//		empRetalhos.add(retalho);
-//		empresa.setRetalhos(empRetalhos);
-//
-//		retr.save(retalho);
-//		empr.save(empresa);
-//
-//		return "redirect:/{cnpj}";
-//	}
 }
