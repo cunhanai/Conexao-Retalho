@@ -69,7 +69,6 @@ public class InstituicaoController {
 
 	@Autowired
 	private RoleRepository rr;
-	
 
 	@Autowired
 	private AgendaColetaRepository acr;
