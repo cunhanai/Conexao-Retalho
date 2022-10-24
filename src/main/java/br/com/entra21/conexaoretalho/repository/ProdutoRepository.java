@@ -9,4 +9,6 @@ public interface ProdutoRepository extends JpaRepository<Produto, String> {
 
 	Iterable<Produto> findByOng(Ong ong);
 
+	Produto findById(long id);
+
 }

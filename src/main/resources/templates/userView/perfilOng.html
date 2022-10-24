@@ -151,7 +151,8 @@
 						<p class="card-subtitle mb-2 text-muted">
 							Tamanho: <span th:text="${produto.tamanho}"></span>
 						</p>
-						<a href="#" class="card-link">Editar</a> <a href="#"
+						<a th:href="${(#mvc.url('IC#editarProduto').arg(0, instituicao.cnpj).arg(1, produto.id)).build()}" 
+						 class="card-link">Editar</a> <a href="#"
 							class="card-link">Excluir</a>
 					</div>
 				</div>

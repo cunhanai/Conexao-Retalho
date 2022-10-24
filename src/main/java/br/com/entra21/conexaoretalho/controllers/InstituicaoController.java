@@ -364,5 +364,28 @@ public class InstituicaoController {
 
 		return "redirect:/{cnpj}";
 	}
+	
+	@RequestMapping(value = "/{cnpj}/produto/{id}/editar", method = RequestMethod.GET)
+	public ModelAndView editarProduto(@PathVariable("cnpj") String cnpj, @PathVariable("id") long id) {
+		ModelAndView mv = new ModelAndView("produtos/editarProduto");
+
+		Ong ong = or.findByCnpj(cnpj);
+		mv.addObject("ong", ong);
+		
+		Produto produto = pr.findById(id);
+		mv.addObject("produto", produto);
+		
+		return mv;
+	}
+
+	@RequestMapping(value = "/{cnpj}/produto/{id}/editar", method = RequestMethod.POST)
+	public String editarProdutoPost(@PathVariable("cnpj") String cnpj, @PathVariable("id") long id,
+			Produto produto) {
+		Ong ong = or.findByCnpj(cnpj);
+		produto.setOng(ong);
+		pr.save(produto);
+		
+		return "redirect:/{cnpj}";
+	}
 
 }
