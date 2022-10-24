@@ -86,9 +86,8 @@
 							<li class="nav-item active"><a class="nav-link"
 								href="${(#mvc.url('IC#editarPerfil').arg(0, instituicao.cnpj)).build()}">Editar</a>
 							</li>
-							<li class="nav-item"><a class="nav-link"
-								th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, instituicao.cnpj)).build()}">Cadastrar
-									Retalho</a></li>
+							<li class="nav-item"><a class="nav-link" th:href="#">Cadastrar
+									Produto</a></li>
 						</ul>
 					</div>
 				</div>
@@ -101,7 +100,7 @@
 				</h4>
 
 				<div>
-					<h5>Sobre user</h5>
+					<h5>Sobre</h5>
 					<p>
 						<span th:text="${instituicao.sobre}"></span>
 					</p>
@@ -119,7 +118,7 @@
 							th:text="${endereco.complemento}"></span> - <span
 							th:text="${endereco.bairro}"></span> - <span
 							th:text="${endereco.cidade}"></span> / <span
-							th:text="${endereco.estado}"></span>, <span
+							th:text="${endereco.estado}"></span> - <span
 							th:text="${endereco.cep}"></span>
 					</p>
 				</div>

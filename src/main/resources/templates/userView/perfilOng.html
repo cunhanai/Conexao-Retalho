@@ -2,81 +2,172 @@
 <html lang="pt-br" xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-
 <head>
+<title>Perfil</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!--Import Google Icon Font-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+
+<link
+	href="/style/cad/vendor/mdi-font/css/material-design-iconic-font.min.css"
+	rel="stylesheet" media="all">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
 	rel="stylesheet">
-<!--Import materialize.css-->
-<link type="text/css" rel="stylesheet"
-	href="/materialize/css/materialize.min.css" media="screen,projection" />
 
-<!--Let browser know website is optimized for mobile-->
-<meta charset="UTF-8" name="viewport"
-	content="width=device-width, initial-scale=1.0" />
-
-<!-- importacao do css -->
-<!--  <link rel="stylesheet" href="style/styleCss.css"> -->
-
-<title>Retalhando - Cadastro de Retalho</title>
-
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/bootstrap/sidebar/css/style.css">
 </head>
-
-
 <body>
 
-	<!-- header - navbar -->
-	<header>
-		<nav>
-			<div class="nav-wrapper">
-				<a href="#" class="brand-logo logo">Conexão Retalho</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="/eventos" class="waves-effect waves-light btn"><i
-							class="material-icons left">format_list_bulleted</i>Lista de
-							Eventos</a></li>
-					<li><a href="/cadastrarEvento"
-						class="waves-effect waves-light btn"> <i
-							class="material-icons left">add_circle_outline</i>Cadastrar
-							Evento
-					</a></li>
-					<li><a href="/logout" class="waves-effect waves-light btn">Logout</a></li>
+	<div class="wrapper d-flex align-items-stretch">
+		<nav id="sidebar">
+			<div class="p-4 pt-5">
+				<a href="#" class="img logo rounded-circle mb-5"
+					style="background-image: url(/style/img/logo-fundo.jpeg);"></a>
+				<ul class="list-unstyled components mb-5">
+
+					<li><a
+						th:href="${(#mvc.url('IC#perfilEmpresa').arg(0, instituicao.cnpj)).build()}">Perfil</a>
+					</li>
+					<li><a href="#pageSubmenu" data-toggle="collapse"
+						aria-expanded="false" class="dropdown-toggle">Buscar</a>
+						<ul class="collapse list-unstyled" id="pageSubmenu">
+							<li><a href="/listaEmpresas">Buscar Instituição</a></li>
+							<li><a href="#">Buscar Retalho</a></li>
+						</ul></li>
+					<li><a
+						th:href="${(#mvc.url('IC#cadastrarProdutos').arg(0, instituicao.cnpj)).build()}">Cadastrar
+							produto</a></li>
+					<li><a href="#">Feedback</a></li>
+					<li><a href="/logout">Logout</a></li>
 				</ul>
+
+				<div class="footer">
+					<p>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						All rights reserved | This template is made with <i
+							class="icon-heart" aria-hidden="true"></i> by <a
+							href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
+				</div>
+
 			</div>
 		</nav>
-	</header>
 
-	<!-- <div th:each="evento : ${evento}" class="container detalhesEvento"> -->
-	<div class="container perfil">
+		<!-- Page Content  -->
+		<div id="content" class="p-4 p-md-5">
 
-		<h4 align="center">
-			<span th:text="${instituicao.nomeInstituicao}"></span>
-		</h4>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="container-fluid">
 
-		<div class="row">
-			<!-- <p><span th:text="${instituicao.endereco}"></span></p> -->
-			<div th:each="responsavel : ${lresponsaveis}">
-				<h6>Responsáveis user</h6>
-				<p>
-					<span th:text="${responsavel.nome}"></span>
-				</p>
-				<span th:text="${responsavel.telefone}"></span>
-				<p>
-					<span th:text="${responsavel.email}"></span>
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+						<i class="fa fa-bars"></i> <span class="sr-only">Toggle
+							Menu</span>
+					</button>
+					<button class="btn btn-dark d-inline-block d-lg-none ml-auto"
+						type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="nav navbar-nav ml-auto">
+							<li class="nav-item active"><a class="nav-link"
+								href="${(#mvc.url('IC#editarPerfil').arg(0, instituicao.cnpj)).build()}">Editar</a>
+							</li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="${(#mvc.url('IC#cadastrarProdutos').arg(0, instituicao.cnpj)).build()}">Cadastrar
+									Produto</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+			<div class="container perfil">
+
+				<h4 align="center">
+					<span th:text="${instituicao.nomeInstituicao}"></span>
+				</h4>
+
+				<div>
+					<h5>Sobre</h5>
+					<p>
+						<span th:text="${instituicao.sobre}"></span>
+					</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+						do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+						enim ad minim veniam, quis nostrud exercitation ullamco laboris
+						nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+						reprehenderit in voluptate velit esse cillum dolore eu fugiat
+						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+						sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+					<p>
+						<b>Endereço:</b> <span th:text="${endereco.rua}"></span>, <span
+							th:text="${endereco.numero}"></span>, <span
+							th:text="${endereco.complemento}"></span> - <span
+							th:text="${endereco.bairro}"></span> - <span
+							th:text="${endereco.cidade}"></span> / <span
+							th:text="${endereco.estado}"></span> - <span
+							th:text="${endereco.cep}"></span>
+					</p>
+				</div>
+
+				<!-- <p><span th:text="${instituicao.endereco}"></span></p> -->
+				<div th:each="responsavel : ${lresponsaveis}">
+					<h6>Responsáveis</h6>
+					<p>
+						<span th:text="${responsavel.nome}"></span>: <i
+							class="zmdi zmdi-phone input-icon"></i> <span
+							th:text="${responsavel.telefone}"></span> - <i
+							class="zmdi zmdi-email"></i> <span th:text="${responsavel.email}"></span>
+					</p>
+				</div>
+				<hr>
+
+				<h5>Produtos</h5>
+
+				<div th:each="produto : ${lprodutos}" class="card inline-block"
+					style="width: 18rem;">
+					<div class="card-body">
+						<h6 class="card-title">
+							<a th:href="#">Retalho de <span th:text="${produto.nome}"></span>
+							</a>
+						</h6>
+						<h6 class="card-subtitle mb-2 text-muted">
+						<span th:text="${produto.preco}"></span>
+						</h6>
+						<p class="card-subtitle mb-2 text-muted">
+							Descrição <span th:text="${produto.descrição}"></span>
+						</p>
+						<p class="card-subtitle mb-2 text-muted">
+							Tamanho <span th:text="${produto.tamanho}"></span>kg
+						</p>
+						<a href="#" class="card-link">Editar</a>
+					</div>
+				</div>
+
+
 			</div>
-			<h6>Sobre</h6>
-			<p>
-				<span th:text="${instituicao.sobre}"></span>
-			</p>
-		</div>
 
+		</div>
 	</div>
 
+	<script src="/bootstrap/sidebar/js/jquery.min.js"></script>
+	<script src="/bootstrap/sidebar/js/popper.js"></script>
+	<script src="/bootstrap/sidebar/js/bootstrap.min.js"></script>
+	<script src="/bootstrap/sidebar/js/main.js"></script>
 
-
-
-	<script type="text/javascript"
-		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
 </body>
 </html>

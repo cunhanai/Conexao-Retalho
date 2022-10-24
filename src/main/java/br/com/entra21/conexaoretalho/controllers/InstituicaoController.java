@@ -22,6 +22,7 @@ import br.com.entra21.conexaoretalho.models.Empresa;
 import br.com.entra21.conexaoretalho.models.Endereco;
 import br.com.entra21.conexaoretalho.models.Instituicao;
 import br.com.entra21.conexaoretalho.models.Ong;
+import br.com.entra21.conexaoretalho.models.Produto;
 import br.com.entra21.conexaoretalho.models.Responsavel;
 import br.com.entra21.conexaoretalho.models.Retalho;
 import br.com.entra21.conexaoretalho.models.Role;
@@ -177,8 +178,19 @@ public class InstituicaoController {
 		String pacote = (cnpj.equals(usuario)) ? "userView"
 				: ((or.findByCnpj(usuario) == null) ? "empresaView" : "ongView");
 
-		if (empr.findByCnpj(cnpj) != null) {
+		if (or.findByCnpj(cnpj) != null) {
 
+			// ERRO NOMEINSTITUICAO AQUI
+			mv = new ModelAndView(pacote + "/perfilOng");
+			Ong ong = or.findByCnpj(cnpj);
+			mv.addObject("instituicao", ong);
+
+			Iterable<Produto> produtos = pr.findByOng(ong);
+			mv.addObject("lprodutos", produtos);
+
+			instituicao = ong;
+
+		} else if (empr.findByCnpj(cnpj) != null) {
 			mv = new ModelAndView(pacote + "/perfilEmpresa");
 			Empresa empresa = empr.findByCnpj(cnpj);
 			mv.addObject("instituicao", empresa);
@@ -188,14 +200,9 @@ public class InstituicaoController {
 
 			instituicao = empresa;
 
-		} else {
-			// ERRO NOMEINSTITUICAO AQUI
-			mv = new ModelAndView(pacote + "/perfilOng");
-			Ong ong = or.findByCnpj(cnpj);
-			mv.addObject("instituicao", ong);
-
-			instituicao = ong;
-
+		}
+		else {
+			return mv = new ModelAndView("erro");
 		}
 
 		Iterable<Responsavel> responsaveis = respr.findByInstituicao(instituicao);
@@ -206,7 +213,7 @@ public class InstituicaoController {
 
 		return mv;
 	}
-	
+
 	// EDITAR PERFIL
 	@RequestMapping(value = "/{cnpj}/editar", method = RequestMethod.GET)
 	public ModelAndView editarPerfil(@PathVariable("cnpj") String cnpj) {
@@ -215,32 +222,28 @@ public class InstituicaoController {
 		mv.addObject("instituicao", instituicao);
 		return mv;
 	}
-	
+
 	@RequestMapping(value = "/{cnpj}/editar", method = RequestMethod.POST)
 	public String editarPerfilPost(@PathVariable("cnpj") String cnpj, Instituicao instituicao) {
-	
+
 		ir.save(instituicao);
-		
+
 		return "redirect:/{cnpj}";
 	}
-	
+
 	/*
 	 * 
-
-	
-	@RequestMapping(value = "/editar", method = RequestMethod.POST)
-	public String editarEventoPost(long codigo, @Valid Evento evento, BindingResult result,
-			RedirectAttributes attributes) {
-
-		// VERIFICA SE OS CAMPOS FORAM PREENCHIDOS
-		if (result.hasErrors()) {
-			attributes.addFlashAttribute("mensagem", "Verifique os campos!");
-			return "redirect:/editar";
-		}
-
-		er.save(evento);
-		return "redirect:/eventos";
-	}
+	 * 
+	 * 
+	 * @RequestMapping(value = "/editar", method = RequestMethod.POST) public String
+	 * editarEventoPost(long codigo, @Valid Evento evento, BindingResult result,
+	 * RedirectAttributes attributes) {
+	 * 
+	 * // VERIFICA SE OS CAMPOS FORAM PREENCHIDOS if (result.hasErrors()) {
+	 * attributes.addFlashAttribute("mensagem", "Verifique os campos!"); return
+	 * "redirect:/editar"; }
+	 * 
+	 * er.save(evento); return "redirect:/eventos"; }
 	 */
 
 	// RETALHO
@@ -324,10 +327,42 @@ public class InstituicaoController {
 		return "redirect:/{cnpj}/retalho/{codigo}";
 	}
 
-	@RequestMapping(value = "/produtos/ongs", method = RequestMethod.GET)
-	public String produtosOngs() {
-		return "instituicao/produtosOngs";
+	@RequestMapping(value = "/{cnpj}/produto/cadastrar", method = RequestMethod.GET)
+	public ModelAndView cadastrarProdutos(@PathVariable("cnpj") String cnpj) {
+		Ong ong = or.findByCnpj(cnpj);
+		ModelAndView mv = new ModelAndView("produtos/produtosOngs");
+		mv.addObject("ong", ong);
 
+		return mv;
 	}
 
+	@RequestMapping(value = "/{cnpj}/produto/cadastrar", method = RequestMethod.POST)
+	public String cadastrarProdutosPost(@PathVariable("cnpj") String cnpj, Produto produto) {
+		Ong ong = or.findByCnpj(cnpj);
+		produto.setOng(ong);
+		List<Produto> ongProdutos = ong.getProdutos();
+		ongProdutos.add(produto);
+		ong.setProdutos(ongProdutos);
+
+		pr.save(produto);
+		or.save(ong);
+
+		return "redirect:/{cnpj}";
+	}
+
+//	// CADASTRAR RETALHO
+//	@RequestMapping(value = "/{cnpj}/retalho/cadastrar", method = RequestMethod.POST)
+//	public String cadastrarRetalhoPost(@PathVariable("cnpj") String cnpj, Retalho retalho) {
+//		Empresa empresa = empr.findByCnpj(cnpj);
+//		retalho.setEmpresa(empresa);
+//
+//		List<Retalho> empRetalhos = empresa.getRetalhos();
+//		empRetalhos.add(retalho);
+//		empresa.setRetalhos(empRetalhos);
+//
+//		retr.save(retalho);
+//		empr.save(empresa);
+//
+//		return "redirect:/{cnpj}";
+//	}
 }
