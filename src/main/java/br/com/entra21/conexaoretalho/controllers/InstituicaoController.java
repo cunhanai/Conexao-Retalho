@@ -154,7 +154,12 @@ public class InstituicaoController {
 	@RequestMapping(value = "/listaEmpresas", method = RequestMethod.GET) // Corrigido
 	public ModelAndView listaEmpresas(@RequestParam(value = "buscarnome", defaultValue = "") String buscarnome) {
 
-		ModelAndView mv = new ModelAndView("instituicao/listaEmpresas");
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String usuario = auth.getName();
+
+		String pacote = (or.findByCnpj(usuario) == null) ? "empresaView" : "ongView";
+		
+		ModelAndView mv = new ModelAndView(pacote + "/listaEmpresas");
 
 		Iterable<Instituicao> instituicoes = ir.findAll();
 		mv.addObject("instituicoes", instituicoes);
@@ -341,6 +346,25 @@ public class InstituicaoController {
 
 		return "redirect:/{cnpj}/retalho/{codigo}";
 	}
+	
+	@RequestMapping("/cadastrar/produto")
+	public String cadastrarProduto() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		
+		
+		return "redirect:/" + username + "/produto/cadastrar";
+	}
+	
+	@RequestMapping("/cadastrar/retalho")
+	public String cadastrarRetalho() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		
+
+		return "redirect:/" + username + "/retalho/cadastrar";
+	}
+	
 
 	@RequestMapping(value = "/{cnpj}/produto/cadastrar", method = RequestMethod.GET)
 	public ModelAndView cadastrarProdutos(@PathVariable("cnpj") String cnpj) {
@@ -386,6 +410,16 @@ public class InstituicaoController {
 		pr.save(produto);
 		
 		return "redirect:/{cnpj}";
+	}
+	
+	@RequestMapping("/deletarProduto")
+	public String deletarProduto(long id) {
+		Produto produto = pr.findById(id);
+		pr.delete(produto);
+		
+		Ong ong = produto.getOng();
+		
+		return "redirect:/" + ong.getCnpj();
 	}
 
 }

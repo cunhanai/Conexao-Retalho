@@ -37,9 +37,7 @@
 							<li><a href="/listaEmpresas">Buscar Instituição</a></li>
 							<li><a href="#">Buscar Retalho</a></li>
 						</ul></li>
-					<li><a
-						th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, instituicao.cnpj)).build()}">Cadastrar
-							retalho</a></li>
+					<li><a href="/cadastrar/retalho">Cadastrar retalho</a></li>
 					<li><a href="#">Feedback</a></li>
 					<li><a href="/logout">Logout</a></li>
 				</ul>
@@ -85,8 +83,7 @@
 								href="${(#mvc.url('IC#editarPerfil').arg(0, instituicao.cnpj)).build()}">Editar</a>
 							</li>
 							<li class="nav-item active"><a class="nav-link"
-								th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, instituicao.cnpj)).build()}">Cadastrar
-									Retalho</a></li>
+								href="/cadastrar/retalho">Cadastrar Retalho</a></li>
 						</ul>
 					</div>
 				</div>
@@ -149,7 +146,9 @@
 						<p class="card-subtitle mb-2 text-muted">
 							Quantidade: <span th:text="${retalho.qtde}"></span>kg
 						</p>
-						<a th:href="${(#mvc.url('IC#editarRetalho').arg(0, instituicao.cnpj).arg(1, retalho.codigo)).build()}" class="card-link">Editar</a>
+						<a
+							th:href="${(#mvc.url('IC#editarRetalho').arg(0, instituicao.cnpj).arg(1, retalho.codigo)).build()}"
+							class="card-link">Editar</a>
 					</div>
 				</div>
 

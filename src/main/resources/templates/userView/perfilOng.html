@@ -44,19 +44,7 @@
 					<li><a href="/logout">Logout</a></li>
 				</ul>
 
-				<div class="footer">
-					<p>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;
-						<script>
-							document.write(new Date().getFullYear());
-						</script>
-						All rights reserved | This template is made with <i
-							class="icon-heart" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank">Colorlib.com</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					</p>
-				</div>
+				
 
 			</div>
 		</nav>
@@ -85,8 +73,7 @@
 								href="${(#mvc.url('IC#editarPerfil').arg(0, instituicao.cnpj)).build()}">Editar</a>
 							</li>
 							<li class="nav-item"><a class="nav-link"
-								th:href="${(#mvc.url('IC#cadastrarProdutos').arg(0, instituicao.cnpj)).build()}">Cadastrar
-									Produto</a></li>
+								href="/cadastrar/retalho">Cadastrar Produto</a></li>
 						</ul>
 					</div>
 				</div>
@@ -151,8 +138,10 @@
 						<p class="card-subtitle mb-2 text-muted">
 							Tamanho: <span th:text="${produto.tamanho}"></span>
 						</p>
-						<a th:href="${(#mvc.url('IC#editarProduto').arg(0, instituicao.cnpj).arg(1, produto.id)).build()}" 
-						 class="card-link">Editar</a> <a href="#"
+						<a
+							th:href="${(#mvc.url('IC#editarProduto').arg(0, instituicao.cnpj).arg(1, produto.id)).build()}"
+							class="card-link">Editar</a> <a
+							th:href="${(#mvc.url('IC#deletarProduto').arg(0, produto.id)).build()}"
 							class="card-link">Excluir</a>
 					</div>
 				</div>

@@ -3,6 +3,7 @@ package br.com.entra21.conexaoretalho.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -12,7 +13,7 @@ public class Ong extends Instituicao {
 	@OneToMany
 	private List<Produto> produtos;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<AgendaColeta> coletasAgendadas;
 
 	public List<Produto> getProdutos() {
