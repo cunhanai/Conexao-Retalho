@@ -57,8 +57,8 @@
 							<li><a href="#">Buscar Retalho</a></li>
 						</ul></li>
 					<li><a
-						th:href="${(#mvc.url('IC#cadastrarProdutos').arg(0, ong.cnpj)).build()}">Cadastrar
-							produto</a></li>
+						th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, empresa.cnpj)).build()}">Cadastrar
+							retalho</a></li>
 					<li><a href="#">Feedback</a></li>
 					<li><a href="/logout">Logout</a></li>
 				</ul>
@@ -79,7 +79,7 @@
 
 			</div>
 		</nav>
-		
+
 		<!-- Page Content  -->
 		<div id="content" class="p-4 p-md-5">
 
@@ -118,35 +118,31 @@
 						<form method="POST" action="#">
 
 							<h5 align="center">
-								<span th:text="${ong.nomeInstituicao}"></span>
+								<span th:text="${empresa.nomeInstituicao}"></span>
 							</h5>
-							<h6 align="center">Cadastrar Produto</h6>
+							<h6 align="center">Editando retalho nº <span th:text="${retalho.codigo}"></span></h6>
 
 							<div class="input-group">
-								<label class="label">Nome Produto:</label> <input
-									class="input--style-1" type="text" name="nome" value=""
-									required="required" placeholder="ex: Estojo de retalho">
+								<label class="label">Material:</label> <input
+									class="input--style-1" th:value="${retalho.material}"
+									type="text" name="material" required="required"
+									placeholder="ex: Poliéster">
 							</div>
 							<div class="input-group">
-								<label class="label">Preço:</label> <input class="input--style-1"
-									type="text" value="" name="preco" required="required"
-									placeholder="ex: 10.00">
+								<label class="label">Cor:</label> <input class="input--style-1"
+									th:value="${retalho.cor}" type="text" name="cor"
+									required="required" placeholder="ex: Rosa">
 							</div>
 							<div class="input-group">
-								<label class="label">Descrição:</label> <input
-									class="input--style-1" type="text" value="" name="descricaoo"
-									required="required" placeholder="ex: Estojo feito com retalhos de jeans">
-							</div>
-							<div class="input-group">
-								<label class="label">Tamanho:</label> <input
-									class="input--style-1" type="text" value="" name="tamanho"
-									required="required" placeholder="ex: 20 cm">
+								<label class="label">Quantidade kg:</label> <input
+									class="input--style-1" th:value="${retalho.qtde}" type="text"
+									name="qtde" required="required" placeholder="ex: 10">
 							</div>
 
 
 							<div class="btn-next-con">
 
-								<button href="/principal" class="btn-last" type="submit">Salvar</button>
+								<button class="btn-last" type="submit">Salvar</button>
 							</div>
 						</form>
 					</div>
