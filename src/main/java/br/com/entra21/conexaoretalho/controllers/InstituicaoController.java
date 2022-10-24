@@ -180,7 +180,6 @@ public class InstituicaoController {
 
 		if (or.findByCnpj(cnpj) != null) {
 
-			// ERRO NOMEINSTITUICAO AQUI
 			mv = new ModelAndView(pacote + "/perfilOng");
 			Ong ong = or.findByCnpj(cnpj);
 			mv.addObject("instituicao", ong);
@@ -200,8 +199,7 @@ public class InstituicaoController {
 
 			instituicao = empresa;
 
-		}
-		else {
+		} else {
 			return mv = new ModelAndView("erro");
 		}
 
@@ -212,6 +210,15 @@ public class InstituicaoController {
 		mv.addObject("endereco", endereco);
 
 		return mv;
+	}
+
+	@RequestMapping(value = "/perfil", method = RequestMethod.GET)
+	public String perfilUser() {
+
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String usuario = auth.getName();
+
+		return "redirect:/" + usuario;
 	}
 
 	// EDITAR PERFIL

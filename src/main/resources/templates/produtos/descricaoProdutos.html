@@ -50,26 +50,22 @@
 	<div class="container perfil">
 
 		<h4 align="center">
-			<span th:text="${instituicao.nomeInstituicao}"></span>
+			<span th:text="${produto.nome}"></span>
 		</h4>
+		<p>
+			<span th:text="${produto.preco}"></span>
+		</p>
+		<p>
+			<span th:text="${produto.descricaoo}"></span>
+		</p>
+		<p>
+			<span th:text="${produto.tamanho}"></span>
+		</p>
 
-		<div class="row">
-			<!-- <p><span th:text="${instituicao.endereco}"></span></p> -->
-			<div th:each="responsavel : ${lresponsaveis}">
-				<h6>Responsáveis</h6>
-				<p>
-					<span th:text="${responsavel.nome}"></span>
-				</p>
-				<span th:text="${responsavel.telefone}"></span>
-				<p>
-					<span th:text="${responsavel.email}"></span>
-			</div>
-			<h6>Sobre</h6>
-			<p>
-				<span th:text="${instituicao.sobre}"></span>
-			</p>
-		</div>
-
+		<a
+			th:href="${(#mvc.url('IC#agendarColeta').arg(0, empresa.cnpj).arg(1, retalho.codigo)).build()}"
+			class="waves-effect waves-light btn"><i
+			class="material-icons left">add_circle_outline</i>Agendar coleta</a>
 	</div>
 
 

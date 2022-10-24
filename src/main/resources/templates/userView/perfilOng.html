@@ -30,9 +30,7 @@
 					style="background-image: url(/style/img/logo-fundo.jpeg);"></a>
 				<ul class="list-unstyled components mb-5">
 
-					<li><a
-						th:href="${(#mvc.url('IC#perfilEmpresa').arg(0, instituicao.cnpj)).build()}">Perfil</a>
-					</li>
+					<li><a href="/perfil">Perfil</a></li>
 					<li><a href="#pageSubmenu" data-toggle="collapse"
 						aria-expanded="false" class="dropdown-toggle">Buscar</a>
 						<ul class="collapse list-unstyled" id="pageSubmenu">
@@ -142,8 +140,7 @@
 					style="width: 18rem;">
 					<div class="card-body">
 						<h6 class="card-title">
-						<a href="#">
-							<span th:text="${produto.nome}"></span></a>
+							<a href="#"> <span th:text="${produto.nome}"></span></a>
 						</h6>
 						<h6 class="card-subtitle mb-2 text-muted">
 							R$ <span th:text="${produto.preco}"></span>
