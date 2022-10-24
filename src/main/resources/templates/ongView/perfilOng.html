@@ -40,8 +40,8 @@
 							<li><a href="#">Buscar Retalho</a></li>
 						</ul></li>
 					<li><a
-						th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, instituicao.cnpj)).build()}">Cadastrar
-							retalho</a></li>
+						th:href="${(#mvc.url('IC#cadastrarProdutos').arg(0, instituicao.cnpj)).build()}">Cadastrar
+							produto</a></li>
 					<li><a href="#">Feedback</a></li>
 					<li><a href="/logout">Logout</a></li>
 				</ul>
@@ -66,9 +66,10 @@
 		<!-- Page Content  -->
 		<div id="content" class="p-4 p-md-5">
 
+
+
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="container-fluid">
-
 					<button type="button" id="sidebarCollapse" class="btn btn-primary">
 						<i class="fa fa-bars"></i> <span class="sr-only">Toggle
 							Menu</span>
@@ -80,65 +81,79 @@
 						aria-label="Toggle navigation">
 						<i class="fa fa-bars"></i>
 					</button>
-
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="nav navbar-nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="#">Editar</a>
-							</li>
-							<li class="nav-item"><a class="nav-link"
-								th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, instituicao.cnpj)).build()}">Cadastrar
-									Retalho ong</a></li>
+							<li><a href="/listaEmpresas" class="linkPagInicial"> <i
+									class="fa fa-chevron-left"></i> Lista de instituições
+							</a></li>
 						</ul>
 					</div>
 				</div>
 			</nav>
 
-			<div class="container perfil">
+			<h4 align="center">
+				<span th:text="${instituicao.nomeInstituicao}"></span>
+			</h4>
 
-				<h4 align="center">
-					<span th:text="${instituicao.nomeInstituicao}"></span>
-				</h4>
+			<div>
+				<h5>Sobre a ONG</h5>
+				<p>
+					<span th:text="${instituicao.sobre}"></span>
+				</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+					enim ad minim veniam, quis nostrud exercitation ullamco laboris
+					nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+					culpa qui officia deserunt mollit anim id est laborum.</p>
 
-				<div>
-					<h5>Sobre</h5>
-					<p>
-						<span th:text="${instituicao.sobre}"></span>
+				<p>
+					<b>Endereço:</b> <span th:text="${endereco.rua}"></span>, <span
+						th:text="${endereco.numero}"></span>, <span
+						th:text="${endereco.complemento}"></span> - <span
+						th:text="${endereco.bairro}"></span> - <span
+						th:text="${endereco.cidade}"></span> / <span
+						th:text="${endereco.estado}"></span>, <span
+						th:text="${endereco.cep}"></span>
+				</p>
+			</div>
+
+			<!-- <p><span th:text="${instituicao.endereco}"></span></p> -->
+			<div th:each="responsavel : ${lresponsaveis}">
+				<h6>Responsáveis</h6>
+				<p>
+					<span th:text="${responsavel.nome}"></span>: <i
+						class="zmdi zmdi-phone input-icon"></i> <span
+						th:text="${responsavel.telefone}"></span> - <i
+						class="zmdi zmdi-email"></i> <span th:text="${responsavel.email}"></span>
+				</p>
+			</div>
+			<hr>
+
+			<h5>Produtos</h5>
+
+			<div th:each="produto : ${lprodutos}" class="card inline-block"
+				style="width: 18rem;">
+				<div class="card-body">
+					<h6 class="card-title">
+						<a href="#"> <span th:text="${produto.nome}"></span></a>
+					</h6>
+					<h6 class="card-subtitle mb-2 text-muted">
+						R$ <span th:text="${produto.preco}"></span>
+					</h6>
+					<p class="card-subtitle mb-2 text-muted">
+						Descrição: <span th:text="${produto.descricaoo}"></span>
 					</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-						do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-						enim ad minim veniam, quis nostrud exercitation ullamco laboris
-						nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat
-						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-						sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-					<p>
-						<b>Endereço:</b> <span th:text="${endereco.rua}"></span>, <span
-							th:text="${endereco.numero}"></span>, <span
-							th:text="${endereco.complemento}"></span> - <span
-							th:text="${endereco.bairro}"></span> - <span
-							th:text="${endereco.cidade}"></span> / <span
-							th:text="${endereco.estado}"></span>, <span
-							th:text="${endereco.cep}"></span>
+					<p class="card-subtitle mb-2 text-muted">
+						Tamanho: <span th:text="${produto.tamanho}"></span>
 					</p>
 				</div>
-
-				<!-- <p><span th:text="${instituicao.endereco}"></span></p> -->
-				<div th:each="responsavel : ${lresponsaveis}">
-					<h6>Responsáveis</h6>
-					<p>
-						<span th:text="${responsavel.nome}"></span>: <i
-							class="zmdi zmdi-phone input-icon"></i> <span
-							th:text="${responsavel.telefone}"></span> - <i
-							class="zmdi zmdi-email"></i> <span th:text="${responsavel.email}"></span>
-					</p>
-				</div>
-				<hr>
-
-				
 			</div>
 
 		</div>
+
+	</div>
 	</div>
 
 	<script src="/bootstrap/sidebar/js/jquery.min.js"></script>

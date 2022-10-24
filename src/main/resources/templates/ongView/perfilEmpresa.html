@@ -40,8 +40,8 @@
 							<li><a href="#">Buscar Retalho</a></li>
 						</ul></li>
 					<li><a
-						th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, instituicao.cnpj)).build()}">Cadastrar
-							retalho</a></li>
+						th:href="${(#mvc.url('IC#cadastrarProdutos').arg(0, instituicao.cnpj)).build()}">Cadastrar
+							produto</a></li>
 					<li><a href="#">Feedback</a></li>
 					<li><a href="/logout">Logout</a></li>
 				</ul>
@@ -68,7 +68,6 @@
 
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="container-fluid">
-
 					<button type="button" id="sidebarCollapse" class="btn btn-primary">
 						<i class="fa fa-bars"></i> <span class="sr-only">Toggle
 							Menu</span>
@@ -80,14 +79,11 @@
 						aria-label="Toggle navigation">
 						<i class="fa fa-bars"></i>
 					</button>
-
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="nav navbar-nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="#">Editar</a>
-							</li>
-							<li class="nav-item"><a class="nav-link"
-								th:href="${(#mvc.url('IC#cadastrarRetalho').arg(0, instituicao.cnpj)).build()}">Cadastrar
-									Retalho ong</a></li>
+							<li><a href="/listaEmpresas" class="linkPagInicial"> <i
+									class="fa fa-chevron-left"></i> Lista de instituições
+							</a></li>
 						</ul>
 					</div>
 				</div>
@@ -100,7 +96,7 @@
 				</h4>
 
 				<div>
-					<h5>Sobre</h5>
+					<h5>Sobre a empresa</h5>
 					<p>
 						<span th:text="${instituicao.sobre}"></span>
 					</p>
@@ -153,7 +149,7 @@
 						<p class="card-subtitle mb-2 text-muted">
 							Quantidade: <span th:text="${retalho.qtde}"></span>kg
 						</p>
-						<a href="#" class="card-link">Editar</a>
+						<a href="#" class="card-link">Agendar coleta</a>
 					</div>
 				</div>
 

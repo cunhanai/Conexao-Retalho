@@ -17,14 +17,14 @@ public class Produto implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	@NotBlank
+	
 	private String nome;
-	@NotBlank
+	
 	private double preco;
 	private String tamanho;
-	@NotBlank
+
 	private String descricaoo;
-	@NotBlank
+	
 	private boolean disponivel = true;
 	@ManyToOne
 	private Ong ong;

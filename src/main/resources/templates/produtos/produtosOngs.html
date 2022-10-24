@@ -22,47 +22,28 @@
 <title>Retalhando - Cadastro de Retalho</title>
 
 </head>
-
-
 <body>
-
-	<!-- header - navbar -->
-	<header>
-		<nav>
-		    <div style = "background: Black"class="nav-wrapper">
-		      <a href="#" class="brand-logo logo">Conexão Retalho</a>
-		      <ul id="nav-mobile" class="right hide-on-med-and-down">
-		        <li><a href="/listaEmpresa" class="waves-effect waves-light btn"><i
-					class="material-icons left">format_list_bulleted</i>Lista de Instituições</a></li>
-				<li><a href="/cadastrar-empresa" class="waves-effect waves-light btn">
-					<i class="material-icons left">add_circle_outline</i>Cadastrar Empresa</a></li>
-				<li><a href="/logout" class="waves-effect waves-light btn">Logout</a></li>
-		      </ul>
-		    </div>
- 		</nav>
-	</header>
-
-	<!-- <div th:each="evento : ${evento}" class="container detalhesEvento"> -->
-	<h6>cadastre seu produto agora</h6>
-		
+<nav>
+    <div class="nav-wrapper #00695c teal darken-3">
+      <a  href="#" class="brand-logo">Retalhando.Entra21</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="waves-effect waves-light btn" href="/cadastro/Ong">Página Inicial</a></li>
+        <li><a class="waves-effect waves-light btn" href="badges.html">Sobre as Ong</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+	<form class="container formCadastro" method="post">
 	
-	<div class="container perfil">
-
-		</div>
-
-			
-			
-		</div>
-	<h4 align="center" > Cadastrar Produto </h4>
-		<div class="row" th:each="produto : ${linsittuicao}">
-			<p>Nome da Ong: <span th:text="{instituicao.nome}"></span></p>
-			<p>Descriminação: <span th:text="{instituicao.descriminação}"></span></p>
-			<p>Tamanho: <span th:text="{instituicao.tamanho}"></span></p>
-			
-			<p>Quantidade: <span th:text="{instituicao.qtde}"></span></p>
+		<div style="text-align:center">
 		
-	</div>
-			<div class="row">
+		<!-- lembra que o campo "name" é o mesmo que o nome da coluna na tabela -->
+		<h5>Cadastro de produtos</h5>
+		</div>
+		<!-- thymeleaf com nome da empresa que está cadastrando -->
+		<p><span th:text="${ong.nomeInstituicao}"></span></p>
+		<!-- lista de opcoes para baixo -->
+		<div class="row">
 				<div class="input-field col s4">	
 					Nome Produto: <input type="text" value="" name="nome" required="required"/>
 				</div>	
@@ -72,39 +53,21 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					Descrição: <input type="text" value="" name="descricao" required="required"/>
+					Descrição: <input type="text" value="" name="descricaoo" required="required"/>
 				</div>
 				<div class="input-field col s4">
 					Tamanho: <input type="text" value="" name="tamanho" required="required"/>
 				</div>
 </div>
-		<button class="waves-effect waves-light btn" type="submit">Salvar</button>
 		
-		<table class=container>
-      <thead>
-         <tr>
-         <th> Nome das Ongs </th>
-      
-         </tr>
-      </thead>
-      <tbody>
-   <tr th:each="produto	 : ${lproduto}">
-  	 <td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, produto.codigo)).build()}"><span th:text= "${produto.nome}"></span></a></td>
-   
-            <td><span th:text= "${instituicao.nome}"></span></td>
-            <td><span th:text= "${instituicao.preço}"></span></td>
-            <td><span th:text= "${instituicao.descricao}"></span></td>
-            <td><a th:href="${(#mvc.url('EC#deletarProduto').arg(0, produto.codigo)).build()}"><i class="material-icons">delete</i></a></td>
-            <td><a th:href="${(#mvc.url('EC#editarProduto').arg(0, produto.codigo)).build()}"><i class="material-icons">edit</i></a></td>
-         
-         
-             
-          </tr>    
-     </tbody>
-  </table>
+	
+		<button class="waves-effect waves-light btn" type="submit">Salvar</button>
 
-	<script type="text/javascript"
-		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	
+	</form>
+
+
+	<!--JavaScript at end of body for optimized loading-->
 	<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
 </body>
 </html>

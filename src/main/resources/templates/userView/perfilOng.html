@@ -101,7 +101,7 @@
 				</h4>
 
 				<div>
-					<h5>Sobre</h5>
+					<h5>Sobre a ONG</h5>
 					<p>
 						<span th:text="${instituicao.sobre}"></span>
 					</p>
@@ -142,19 +142,20 @@
 					style="width: 18rem;">
 					<div class="card-body">
 						<h6 class="card-title">
-							<a th:href="#">Retalho de <span th:text="${produto.nome}"></span>
-							</a>
+						<a href="#">
+							<span th:text="${produto.nome}"></span></a>
 						</h6>
 						<h6 class="card-subtitle mb-2 text-muted">
-						<span th:text="${produto.preco}"></span>
+							R$ <span th:text="${produto.preco}"></span>
 						</h6>
 						<p class="card-subtitle mb-2 text-muted">
-							Descrição <span th:text="${produto.descrição}"></span>
+							Descrição: <span th:text="${produto.descricaoo}"></span>
 						</p>
 						<p class="card-subtitle mb-2 text-muted">
-							Tamanho <span th:text="${produto.tamanho}"></span>kg
+							Tamanho: <span th:text="${produto.tamanho}"></span>
 						</p>
-						<a href="#" class="card-link">Editar</a>
+						<a href="#" class="card-link">Editar</a> <a href="#"
+							class="card-link">Excluir</a>
 					</div>
 				</div>
 
