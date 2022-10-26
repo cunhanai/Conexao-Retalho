@@ -97,7 +97,7 @@ links uteis para construir esse readme
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<div align="center">
+<div align="center" class="row">
   <a href="https://github.com/cunhanai/Conexao-Retalho">
     <img src="src/main/resources/static/style/img/perfil-empresa.jpeg" alt="Página de perfil da empresa que se cadastra no site">
   </a>
