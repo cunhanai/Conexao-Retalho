@@ -36,9 +36,10 @@ links uteis para construir esse readme
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+<div align="center">
 ![GitHub contributors](https://img.shields.io/github/contributors-anon/cunhanai/Conexao-Retalho?style=for-the-badge)
 ![GitHub Repo stars](https://img.shields.io/github/stars/cunhanai/Conexao-Retalho?style=for-the-badge)
-
+</div>
 
 
 <!-- PROJECT LOGO -->
