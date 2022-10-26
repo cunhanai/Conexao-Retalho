@@ -101,23 +101,47 @@ links uteis para construir esse readme
   <a href="https://github.com/cunhanai/Conexao-Retalho">
     <img src="src/main/resources/static/style/img/perfil-empresa.jpeg" alt="Página de perfil da empresa que se cadastra no site">
   </a>
-  <a href="https://github.com/cunhanai/Conexao-Retalho">
-    <img src="src/main/resources/static/style/img/perfil-ong.jpeg" alt="Página de perfil da empresa que se cadastra no site">
-  </a>
  </div>
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+Buscamos criar um projeto de cunho social que auxilie a comunidade e o meio ambiente por meio da conecxão entre empresas têxteis e ONGs para intermediar doações de retalhos excedentes em sua produção. As ONGs se utilizam dessas peças para angariar de fundos ou criação de produtos artesanais para seus projetos.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+### Dados motivadores
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+<div>
+  <ul>
+    <li>4M de toneladas de resíduos têxteis são gerado por ano no Brasil</li>
+    <li>Cerca de 80% vão parar nos lixões</li>
+    <li>67% das ONGs perderam mais da metade de sua arrecadação durante a pandemia</li>
+  </ul>
+</div>
 
-Use the `BLANK_README.md` to get started.
+### Benefícios
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<div>
+  Para a empresa:
+  <ul>
+    <li>Visibilidade</li>
+    <li>Ajudar no Imposto de Renda</li>
+    <li>Demonstrar que está engajado em projetos socioambientais</li>
+  </ul>
+  
+  Para a ONG:
+  <ul>
+    <li>Angariar fundos</li>
+    <li>Ajudar nos projetos da ONG</li>
+    <li>Visibilidade</li>
+  </ul>
+  
+  Para a natureza:
+  <ul>
+    <li>Reciclagem e redução de lixo</li>
+    <li>Preservação de espécies</li>
+    <li>Aumento da qualidade de vida</li>
+  </ul>
+ </div>
+  
+
+<p align="right">(<a href="#readme-top">Voltar pro topo</a>)</p>
 
 
 
