@@ -71,7 +71,7 @@ links uteis para construir esse readme
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-project">Sobre o Projeto</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
@@ -95,7 +95,7 @@ links uteis para construir esse readme
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Sobre o projeto
 
 <div align="center" class="row">
   <a href="https://github.com/cunhanai/Conexao-Retalho">
@@ -118,6 +118,7 @@ Buscamos criar um projeto de cunho social que auxilie a comunidade e o meio ambi
 ### Benefícios
 
 <div>
+
   Para a empresa:
   <ul>
     <li>Visibilidade</li>
@@ -145,11 +146,10 @@ Buscamos criar um projeto de cunho social que auxilie a comunidade e o meio ambi
 
 
 
-### Built With
+### Construído com
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![Next][Next.js]][Next-url]
+* [![Java][Java.com]][Java-url]
 * [![React][React.js]][React-url]
 * [![Vue][Vue.js]][Vue-url]
 * [![Angular][Angular.io]][Angular-url]
