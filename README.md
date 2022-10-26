@@ -37,12 +37,7 @@
     <br />
     <a href="https://github.com/cunhanai/Conexão-Retalho"><strong>Explore nosso projeto »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+   
   </p>
 </div>
 
@@ -53,7 +48,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">Sobre o Projeto</a>
+      <a href="#sobre-o-projeto">Sobre o projeto</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
