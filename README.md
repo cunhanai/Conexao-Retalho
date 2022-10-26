@@ -45,7 +45,7 @@ links uteis para construir esse readme
 <br />
 <div align="center">
   <a href="https://github.com/cunhanai/Conexao-Retalho">
-    <img src="src/main/resources/static/style/img/logo.png" alt="Logo do Conexão Retalho" width="120" height="120">
+    <img src="src/main/resources/static/style/img/logo.png" alt="Logo do Conexão Retalho" width="500" height="500">
   </a>
 
   <h3 align="center">Conexão Retalho</h3>
@@ -97,7 +97,11 @@ links uteis para construir esse readme
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](src/main/resources/static/style/img/perfil-empresa.jpeg)
+<div align="center">
+  <a href="https://github.com/cunhanai/Conexao-Retalho">
+    <img src="src/main/resources/static/style/img/perfil-empresa.jpeg" alt="Página de perfil da empresa que se cadastra no site">
+  </a>
+ </div>
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
