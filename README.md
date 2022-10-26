@@ -253,7 +253,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [contributors-url]: https://github.com/cunhanai/Conexao-Retalho
 [product-screenshot]: images/screenshot.png
 
-[Java.com]: https://img.shields.io/badge/java-000000?style=for-the-badge&logo=nextdotjs&logoColor=red
+[Java.com]: https://img.shields.io/badge/java-000000?style=for-the-badge&logo=java&logoColor=red
 [Java-url]: https://www.java.com
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
