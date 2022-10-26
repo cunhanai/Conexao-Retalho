@@ -131,7 +131,7 @@ Buscamos criar um projeto de cunho social que auxilie a comunidade e o meio ambi
 ### Construído com
 
 
-* [![Next][Next.js]][Next-url]
+* [![Java][Java.com]][Next-url]
 * [![React][React.js]][React-url]
 * [![Vue][Vue.js]][Vue-url]
 * [![Angular][Angular.io]][Angular-url]
