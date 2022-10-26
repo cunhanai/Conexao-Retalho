@@ -131,7 +131,7 @@ Buscamos criar um projeto de cunho social que auxilie a comunidade e o meio ambi
 ### Construído com
 
 
-* [![Java][Java.com]][Next-url]
+* [![Java][Java.com]][Java-url]
 * [![React][React.js]][React-url]
 * [![Vue][Vue.js]][Vue-url]
 * [![Angular][Angular.io]][Angular-url]
@@ -254,6 +254,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [product-screenshot]: images/screenshot.png
 
 [Java.com]: https://img.shields.io/badge/java-000000?style=for-the-badge&logo=nextdotjs&logoColor=red
+[Java-url]: https://www.java.com
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
