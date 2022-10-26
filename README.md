@@ -78,7 +78,7 @@
  </div>
 <br>
 Este é o projeto final de conclusão do Curso de Java no Entra21 (2022).
-
+<br>
 Nós buscamos criar um projeto de cunho social que auxilie a comunidade e o meio ambiente por meio da conecxão entre empresas têxteis e ONGs para intermediar doações de retalhos excedentes em sua produção. As ONGs se utilizam dessas peças para angariar de fundos ou criação de produtos artesanais para seus projetos.
 
 <p align="right">(<a href="#readme-top">voltar pro topo</a>)</p>
@@ -139,10 +139,14 @@ Nós buscamos criar um projeto de cunho social que auxilie a comunidade e o meio
 
 <p align="right">(<a href="#readme-top">voltar pro topo</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
+
+<div align="center" class="row">
+  <a href="https://github.com/cunhanai/Conexao-Retalho">
+    <img src="src/main/resources/static/style/img/perfil-ong.jpeg" alt="Página de perfil da empresa que se cadastra no site">
+  </a>
+ </div>
 
 ### Pré-requisitos
 
