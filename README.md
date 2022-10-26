@@ -76,8 +76,10 @@
     <img src="src/main/resources/static/style/img/perfil-empresa.jpeg" alt="Página de perfil da empresa que se cadastra no site">
   </a>
  </div>
+<br>
+Este é o projeto final de conclusão do Curso de Java no Entra21 (2022).
 
-Buscamos criar um projeto de cunho social que auxilie a comunidade e o meio ambiente por meio da conecxão entre empresas têxteis e ONGs para intermediar doações de retalhos excedentes em sua produção. As ONGs se utilizam dessas peças para angariar de fundos ou criação de produtos artesanais para seus projetos.
+Nós buscamos criar um projeto de cunho social que auxilie a comunidade e o meio ambiente por meio da conecxão entre empresas têxteis e ONGs para intermediar doações de retalhos excedentes em sua produção. As ONGs se utilizam dessas peças para angariar de fundos ou criação de produtos artesanais para seus projetos.
 
 <p align="right">(<a href="#readme-top">voltar pro topo</a>)</p>
 
