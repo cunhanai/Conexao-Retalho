@@ -36,20 +36,16 @@ links uteis para construir esse readme
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-![GitHub contributors](https://img.shields.io/github/contributors/cunhanai/Conexao-Retalho)
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+![GitHub contributors](https://img.shields.io/github/contributors-anon/cunhanai/Conexao-Retalho?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/cunhanai/Conexao-Retalho?style=for-the-badge)
 
 
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/cunhanai/Conexao-Retalho">
+    <img src="src/main/resources/static/style/img/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Best-README-Template</h3>
