@@ -130,21 +130,14 @@ Buscamos criar um projeto de cunho social que auxilie a comunidade e o meio ambi
 
 ### Construído com
  
-<div>
- <ul>
-   <li><a href="">
-      <img src="https://th.bing.com/th/id/R.8885ce9860f3aed4c999dc1b9fb70633?rik=dTAYk8jsTpGFXg&riu=http%3a%2f%2flogos-download.com%2fwp-content%2fuploads%2f2016%2f10%2fJava_logo_icon.png&ehk=mzIxcXexRV5JNYDZ2uRmZfDv2coLbtzY5kUEdUqV4v4%3d&risl=&pid=ImgRaw&r=0" width="80" height="80"></li>
-      </ul>
-      </div>
-
-* [![Java][Java.com]][Java-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* Java
+* Spring (Spring Framework, Spring Boot, Spring Data JPA, Spring Security, Spring Web para a criação da aplicação)
+* MySQL
+* Bootstrap
+* Thymeleaf
+* Git
+* Github
+* Maven
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -153,34 +146,24 @@ Buscamos criar um projeto de cunho social que auxilie a comunidade e o meio ambi
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+### Pré-requisitos
 
-### Prerequisites
+1. Uma IDE (preferencialmente Eclipse)
+2. MySQKL Workbench
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+### Iniciando a aplicação
 
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clonar o repositório
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/cunhanai/Conexao-Retalho.git
    ```
-3. Install NPM packages
+3. Importar para dentro da IDE como Maven Project
+   
+4. Criar um banco de dados
    ```sh
-   npm install
+   create schema conexaoretalho;
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+ 5. Executar o arquivo `onexaoretalhoApplication.java`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
