@@ -1,21 +1,3 @@
-#1 Conexao-Retalho (logo)
-2 descrição - qual nosso objetivo
-
-3 funcionalidades - enumerar o que existe no projeto, quais sao as funcionalidades e as paginas
-
-4 tecnologias utilizadas
-
-5 inicialização - como iniciar o projeto apos o git clone, se é necessário rodar um npm ou se precisa instalar alguma dependência na máquina local.
-
-6 implementações futuras
-
-7 colaboradores github e linkedin
-
-8 status do projeto
-
-
-links uteis para construir esse readme
-
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!--
@@ -36,6 +18,7 @@ links uteis para construir esse readme
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+[![contributors-shield][contributors-url]]
 ![GitHub contributors](https://img.shields.io/github/contributors-anon/cunhanai/Conexao-Retalho?style=for-the-badge)
 ![GitHub Repo stars](https://img.shields.io/github/stars/cunhanai/Conexao-Retalho?style=for-the-badge)
 
@@ -149,7 +132,7 @@ Buscamos criar um projeto de cunho social que auxilie a comunidade e o meio ambi
 ### Construído com
 
 
-* [![Java][Java.com]][Java-url]
+* [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
 * [![Vue][Vue.js]][Vue-url]
 * [![Angular][Angular.io]][Angular-url]
@@ -204,23 +187,6 @@ _Below is an example of how you can instruct your audience on installing and set
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -284,7 +250,7 @@ Use this space to list resources you find helpful and would like to give credit 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/cunhanai/Conexao-Retalho?style=for-the-badge
 [contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
 [forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
